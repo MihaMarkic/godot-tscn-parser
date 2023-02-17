@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotTscnParser.Engine", "GodotTscnParser.Engine\GodotTscnParser.Engine.csproj", "{E7298945-B793-412B-BA54-E621F2B485BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotTscnParser.Test", "GodotTscnParser.Test\GodotTscnParser.Test.csproj", "{7DAD45B0-CDD4-4AB3-94AE-8C38693BC90E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7298945-B793-412B-BA54-E621F2B485BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7298945-B793-412B-BA54-E621F2B485BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7298945-B793-412B-BA54-E621F2B485BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7298945-B793-412B-BA54-E621F2B485BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DAD45B0-CDD4-4AB3-94AE-8C38693BC90E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DAD45B0-CDD4-4AB3-94AE-8C38693BC90E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DAD45B0-CDD4-4AB3-94AE-8C38693BC90E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DAD45B0-CDD4-4AB3-94AE-8C38693BC90E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B30A4744-3D9B-4384-8A00-8C59835F64B2}
+	EndGlobalSection
+EndGlobal
