@@ -4,10 +4,19 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Righthand.GodotTscnParser</PackageId>
+    <RootNamespace>Righthand.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Antlr4.Runtime.Standard" Version="4.11.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Antlr4.Runtime" />
+    <Using Include="Antlr4.Runtime.Tree" />
+    <Using Include="Righthand.GodotTscnParser.Engine.Grammar" />
+    <Using Include="System.Collections.Immutable" />
   </ItemGroup>
 
 </Project>
