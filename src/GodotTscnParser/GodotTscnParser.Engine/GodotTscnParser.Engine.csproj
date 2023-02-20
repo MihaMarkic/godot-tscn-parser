@@ -6,7 +6,22 @@
     <Nullable>enable</Nullable>
     <PackageId>Righthand.GodotTscnParser</PackageId>
     <RootNamespace>Righthand.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <Title>Godot TSCN parser</Title>
+    <Description>ANTLR based parser for Godot's TSCN files.</Description>
+    <RepositoryUrl>https://github.com/MihaMarkic/godot-tscn-parser</RepositoryUrl>
+    <PackageTags>godot;tscn;parser</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Version>1.0.0-beta1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Antlr4.Runtime.Standard" Version="4.11.1" />

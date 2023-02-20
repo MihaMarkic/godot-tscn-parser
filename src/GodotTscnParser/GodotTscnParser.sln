@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotTscnParser.Engine", "GodotTscnParser.Engine\GodotTscnParser.Engine.csproj", "{E7298945-B793-412B-BA54-E621F2B485BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GodotTscnParser.Engine", "GodotTscnParser.Engine\GodotTscnParser.Engine.csproj", "{E7298945-B793-412B-BA54-E621F2B485BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotTscnParser.Test", "GodotTscnParser.Test\GodotTscnParser.Test.csproj", "{7DAD45B0-CDD4-4AB3-94AE-8C38693BC90E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GodotTscnParser.Test", "GodotTscnParser.Test\GodotTscnParser.Test.csproj", "{7DAD45B0-CDD4-4AB3-94AE-8C38693BC90E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0D2989CB-5EAB-42D5-ACB5-8C51E5FCAB6D}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\README.md = ..\..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
