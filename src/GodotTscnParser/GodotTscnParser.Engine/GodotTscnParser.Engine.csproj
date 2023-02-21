@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -13,8 +13,16 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Version>1.0.0-beta1</Version>
+    <Version>1.0.0-alpha1</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+  <Choose>
+    <When Condition=" '$(Configuration)'=='Release' ">
+      <PropertyGroup>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+      </PropertyGroup>
+    </When>
+  </Choose>
 
   <ItemGroup>
     <None Include="..\..\..\LICENSE">
@@ -32,6 +40,13 @@
     <Using Include="Antlr4.Runtime.Tree" />
     <Using Include="Righthand.GodotTscnParser.Engine.Grammar" />
     <Using Include="System.Collections.Immutable" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Docs\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </Content>
   </ItemGroup>
 
 </Project>
