@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\..\README.md = ..\..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotTscnSourceGenerator", "GodotTscnSourceGenerator\GodotTscnSourceGenerator.csproj", "{982AF794-992A-41F9-BFD4-0E7EDEA8E341}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,10 +26,6 @@ Global
 		{7DAD45B0-CDD4-4AB3-94AE-8C38693BC90E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DAD45B0-CDD4-4AB3-94AE-8C38693BC90E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DAD45B0-CDD4-4AB3-94AE-8C38693BC90E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{982AF794-992A-41F9-BFD4-0E7EDEA8E341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{982AF794-992A-41F9-BFD4-0E7EDEA8E341}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{982AF794-992A-41F9-BFD4-0E7EDEA8E341}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{982AF794-992A-41F9-BFD4-0E7EDEA8E341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
