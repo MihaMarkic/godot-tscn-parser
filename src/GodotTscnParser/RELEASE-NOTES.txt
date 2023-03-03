@@ -1,0 +1,4 @@
+﻿v.1.0.0-alpha4
+	- switches to .NET Standard 2.0 to provide support for source generators and .NET Framework based code
+v.1.0.0-alpha1
+	- initial version
