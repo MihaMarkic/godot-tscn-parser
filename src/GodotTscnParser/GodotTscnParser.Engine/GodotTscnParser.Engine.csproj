@@ -1,7 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Righthand.GodotTscnParser</PackageId>
@@ -13,7 +15,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Version>1.0.0-alpha1</Version>
+    <Version>1.0.0-alpha4</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <Choose>
@@ -39,7 +41,6 @@
     <Using Include="Antlr4.Runtime" />
     <Using Include="Antlr4.Runtime.Tree" />
     <Using Include="Righthand.GodotTscnParser.Engine.Grammar" />
-    <Using Include="System.Collections.Immutable" />
   </ItemGroup>
 
   <ItemGroup>
