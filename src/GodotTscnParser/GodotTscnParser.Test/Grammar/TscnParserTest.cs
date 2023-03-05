@@ -50,7 +50,7 @@ namespace GodotTscnParser.Test.Grammar
             {
                 var actual = Return(input, p => p.pair());
 
-                Assert.That(actual.KEY().GetText(), Is.EqualTo("load_steps"));
+                Assert.That(actual.pairName().GetText(), Is.EqualTo("load_steps"));
                 var value = actual.value();
                 Assert.That(value.GetText(), Is.EqualTo("8"));
                 Assert.That(value.ChildCount, Is.EqualTo(1));
@@ -223,6 +223,18 @@ namespace GodotTscnParser.Test.Grammar
             {
                 Assert.DoesNotThrow(() => Run(input, p => p.file()));
             }
+        }
+        [TestFixture]
+        public class Value: Bootstrap
+        {
+            [Test]
+            public void GivenRefProperty_ExtractsPropertyName()
+            {
+                var actual = Return("&\"up\"", p => p.value());
+
+                Assert.That(actual.@ref().propertyName().GetText(), Is.EqualTo("\"up\""));
+            }
+
         }
     }
 }

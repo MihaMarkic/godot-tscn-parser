@@ -26,7 +26,11 @@ object:
 	;
 
 property: 
-	STRING ':' complexValue
+	propertyName ':' complexValue
+	;
+
+propertyName:
+	STRING
 	;
 
 extResourceRef: 
@@ -39,8 +43,9 @@ nodePath:
 	'NodePath' '(' resourceRef ')'
 	;
 ref: 
-	'&' STRING
+	'&' propertyName
 	;
+
 resourceRef:
 	STRING
 	| NUMBER // here it is actually an INT, but it's not important
@@ -70,7 +75,11 @@ complexValueArray:
 	;
 
 pair: 
-	KEY '=' value 
+	pairName '=' value 
+	;
+
+pairName:
+	KEY
 	;
 
 complexPairName:
