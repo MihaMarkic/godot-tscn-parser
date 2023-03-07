@@ -3,7 +3,7 @@
     /// <summary>
     /// A bunch of sample taken from real world scenarios
     /// </summary>
-    internal static partial class GrammarSamples
+    internal static partial class GrammarTscnSamples
     {
         public const string First = """
             [gd_scene load_steps=8 format=3 uid="uid://d3doqyggcpkeb"]

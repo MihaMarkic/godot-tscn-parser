@@ -1,14 +1,17 @@
-﻿using Antlr4.Runtime.Tree;
+﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
 using GodotTscnParser.Test.Grammar.Samples;
 using NUnit.Framework;
 using Righthand.GodotTscnParser.Engine.Grammar;
 
 namespace GodotTscnParser.Test.Grammar
 {
-    internal class TscnParserTest
+    internal class TscnParserTest : Bootstrap<TscnParser, TscnLexer, TscnBaseListener>
     {
+        protected override TscnLexer CreateLexer(AntlrInputStream? stream) => new TscnLexer(stream);
+        protected override TscnParser CreateParser(CommonTokenStream? stream) => new TscnParser(stream);
         [TestFixture]
-        public class Number : Bootstrap
+        public class Number: TscnParserTest
         {
             [TestCase(".5")]
             [TestCase("1.5")]
@@ -27,7 +30,7 @@ namespace GodotTscnParser.Test.Grammar
         }
 
         [TestFixture]
-        public class Pair : Bootstrap
+        public class Pair : TscnParserTest
         {
             [TestCase("load_steps=8")]
             [TestCase("load_steps = 8")]
@@ -60,7 +63,7 @@ namespace GodotTscnParser.Test.Grammar
         }
 
         [TestFixture]
-        public class FileDescriptor : Bootstrap
+        public class FileDescriptor : TscnParserTest
         {
             [Test]
             public void WhenSampleInput_ParsesCorrectly()
@@ -73,7 +76,7 @@ namespace GodotTscnParser.Test.Grammar
             }
         }
         [TestFixture]
-        public class ExtResource : Bootstrap
+        public class ExtResource : TscnParserTest
         {
             [Test]
             public void WhenSampleInput_ParsesCorrectly()
@@ -86,7 +89,7 @@ namespace GodotTscnParser.Test.Grammar
             }
         }
         [TestFixture]
-        public class SubResource : Bootstrap
+        public class SubResource : TscnParserTest
         {
             [Test]
             public void GivenHeaderOnly_ParsesCorrectly()
@@ -148,7 +151,7 @@ namespace GodotTscnParser.Test.Grammar
             }
         }
         [TestFixture]
-        public class ExtResourceRef : Bootstrap
+        public class ExtResourceRef : TscnParserTest
         {
             [TestCase("ExtResource(\"3_krmrv\")")]
             public void TestValid(string input)
@@ -157,7 +160,7 @@ namespace GodotTscnParser.Test.Grammar
             }
         }
         [TestFixture]
-        public class Object : Bootstrap
+        public class Object : TscnParserTest
         {
             [TestCase("{ }")]
             [TestCase("{ \"duration\": 1.0 }")]
@@ -167,7 +170,7 @@ namespace GodotTscnParser.Test.Grammar
             }
         }
         [TestFixture]
-        public class ObjectArray : Bootstrap
+        public class ObjectArray : TscnParserTest
         {
             [TestCase("[ ]")]
             [TestCase("[{ }]")]
@@ -179,7 +182,7 @@ namespace GodotTscnParser.Test.Grammar
             }
         }
         [TestFixture]
-        public class ComplexPair : Bootstrap
+        public class ComplexPair : TscnParserTest
         {
             [TestCase("key = [ ]")]
             [TestCase("key = [{ }]")]
@@ -191,7 +194,7 @@ namespace GodotTscnParser.Test.Grammar
             }
         }
         [TestFixture]
-        public class Property : Bootstrap
+        public class Property : TscnParserTest
         {
             [TestCase("\"key\": 4")]
             [TestCase("\"key\": true")]
@@ -205,7 +208,7 @@ namespace GodotTscnParser.Test.Grammar
             }
         }
         [TestFixture]
-        public class NumericStructure : Bootstrap
+        public class NumericStructure : TscnParserTest
         {
             [TestCase("Vector2(0.5, 0.5)")]
             [TestCase("PoolRealArray( 0, 1, -0.0358698, -0.829927, 0.444204, 0, 0, 0, 1, 0.815074, 0.815074, 0.815074, 4.95833, 1, -0.0358698, -0.829927, 0.444204, 0, 0, 0, 1, 0.815074, 0.815074, 0.815074 )")]
@@ -215,17 +218,17 @@ namespace GodotTscnParser.Test.Grammar
             }
         }
         [TestFixture]
-        public class File: Bootstrap
+        public class File: TscnParserTest
         {
-            [TestCase(GrammarSamples.First)]
-            [TestCase(GrammarSamples.Second)]
+            [TestCase(GrammarTscnSamples.First)]
+            [TestCase(GrammarTscnSamples.Second)]
             public void TestValid(string input)
             {
                 Assert.DoesNotThrow(() => Run(input, p => p.file()));
             }
         }
         [TestFixture]
-        public class Value: Bootstrap
+        public class Value: TscnParserTest
         {
             [Test]
             public void GivenRefProperty_ExtractsPropertyName()

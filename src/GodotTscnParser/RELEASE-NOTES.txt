@@ -1,4 +1,6 @@
-﻿v.1.0.0-alpha6
+﻿v.1.0.0-alpha7
+	- adds .godot file parser (project.godot)
+v.1.0.0-alpha6
 	- improves grammer to allow easier property name parsing
 v.1.0.0-alpha5
 	- renames assembly

@@ -4,58 +4,52 @@ using Righthand.GodotTscnParser.Engine.Grammar;
 
 namespace GodotTscnParser.Test.Grammar;
 
-public abstract class Bootstrap
+public abstract class Bootstrap<TParser, TLexer, TListener>
+    where TParser : Parser
+    where TLexer : Lexer
+    where TListener: IParseTreeListener, new()
+
 {
-    public void Run<TContext>(string text, Func<TscnParser, TContext> run)
-        where TContext : ParserRuleContext
-    {
-        Run<TscnBaseListener, TContext>(text, run);
-    }
-    public TListener Run<TListener, TContext>(string text, Func<TscnParser, TContext> run)
-        where TListener : TscnBaseListener, new()
+    protected abstract TLexer CreateLexer(AntlrInputStream? stream);
+    protected abstract TParser CreateParser(CommonTokenStream? stream);
+    public TListener Run<TContext>(string text, Func<TParser, TContext> run)
         where TContext : ParserRuleContext
     {
         var input = new AntlrInputStream(text);
-        var lexer = new TscnLexer(input);
+        var lexer = CreateLexer(input);
         lexer.AddErrorListener(new SyntaxErrorListener());
         var tokens = new CommonTokenStream(lexer);
-        var parser = new TscnParser(tokens)
-        {
-            BuildParseTree = true
-        };
+        var parser = CreateParser(tokens);
+        parser.BuildParseTree = true;
         parser.AddErrorListener(new ErrorListener());
         var tree = run(parser);
         var listener = new TListener();
         ParseTreeWalker.Default.Walk(listener, tree);
         return listener;
     }
-    public void Run<TContext>(ITscnListener listener, string text, Func<TscnParser, TContext> run)
+    public void Run<TContext>(ITscnListener listener, string text, Func<TParser, TContext> run)
         where TContext : ParserRuleContext
     {
         var input = new AntlrInputStream(text);
-        var lexer = new TscnLexer(input);
+        var lexer = CreateLexer(input);
         lexer.AddErrorListener(new SyntaxErrorListener());
         var tokens = new CommonTokenStream(lexer);
-        var parser = new TscnParser(tokens)
-        {
-            BuildParseTree = true
-        };
+        var parser = CreateParser(tokens);
+        parser.BuildParseTree = true;
         parser.AddErrorListener(new ErrorListener());
         var tree = run(parser);
         ParseTreeWalker.Default.Walk(listener, tree);
     }
 
-    public TContext Return<TContext>(string text, Func<TscnParser, TContext> run)
+    public TContext Return<TContext>(string text, Func<TParser, TContext> run)
         where TContext : ParserRuleContext
     {
         var input = new AntlrInputStream(text);
-        var lexer = new TscnLexer(input);
+        var lexer = CreateLexer(input);
         lexer.AddErrorListener(new SyntaxErrorListener());
         var tokens = new CommonTokenStream(lexer);
-        var parser = new TscnParser(tokens)
-        {
-            BuildParseTree = true
-        };
+        var parser = CreateParser(tokens);
+        parser.BuildParseTree = true;
         parser.AddErrorListener(new ErrorListener());
         var tree = run(parser);
         //var listener = new TListener();
