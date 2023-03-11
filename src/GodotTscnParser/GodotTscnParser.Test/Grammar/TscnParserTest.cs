@@ -222,6 +222,7 @@ namespace GodotTscnParser.Test.Grammar
         {
             [TestCase(GrammarTscnSamples.First)]
             [TestCase(GrammarTscnSamples.Second)]
+            [TestCase(GrammarTscnSamples.Third)]
             public void TestValid(string input)
             {
                 Assert.DoesNotThrow(() => Run(input, p => p.file()));

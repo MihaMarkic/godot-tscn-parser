@@ -455,12 +455,6 @@ public partial class TscnParser : Parser {
 	public partial class NodeContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode START_BRACKET() { return GetToken(TscnParser.START_BRACKET, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END_BRACKET() { return GetToken(TscnParser.END_BRACKET, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public PairContext[] pair() {
-			return GetRuleContexts<PairContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public PairContext pair(int i) {
-			return GetRuleContext<PairContext>(i);
-		}
 		[System.Diagnostics.DebuggerNonUserCode] public ComplexPairContext[] complexPair() {
 			return GetRuleContexts<ComplexPairContext>();
 		}
@@ -503,7 +497,7 @@ public partial class TscnParser : Parser {
 				{
 				{
 				State = 107;
-				pair();
+				complexPair();
 				}
 				}
 				State = 110;
@@ -1765,7 +1759,7 @@ public partial class TscnParser : Parser {
 		3,36,18,0,94,93,1,0,0,0,95,96,1,0,0,0,96,94,1,0,0,0,96,97,1,0,0,0,97,98,
 		1,0,0,0,98,102,5,24,0,0,99,101,3,42,21,0,100,99,1,0,0,0,101,104,1,0,0,
 		0,102,100,1,0,0,0,102,103,1,0,0,0,103,7,1,0,0,0,104,102,1,0,0,0,105,106,
-		5,23,0,0,106,108,5,4,0,0,107,109,3,36,18,0,108,107,1,0,0,0,109,110,1,0,
+		5,23,0,0,106,108,5,4,0,0,107,109,3,42,21,0,108,107,1,0,0,0,109,110,1,0,
 		0,0,110,108,1,0,0,0,110,111,1,0,0,0,111,112,1,0,0,0,112,116,5,24,0,0,113,
 		115,3,42,21,0,114,113,1,0,0,0,115,118,1,0,0,0,116,114,1,0,0,0,116,117,
 		1,0,0,0,117,9,1,0,0,0,118,116,1,0,0,0,119,120,5,23,0,0,120,122,5,5,0,0,

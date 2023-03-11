@@ -13,7 +13,7 @@ subResource:
 	;
 
 node: 
-	START_BRACKET 'node' pair+ END_BRACKET complexPair*
+	START_BRACKET 'node' complexPair+ END_BRACKET complexPair*
 	;
 
 connection: 
