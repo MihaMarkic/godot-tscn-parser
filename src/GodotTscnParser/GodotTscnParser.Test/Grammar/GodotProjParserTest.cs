@@ -21,6 +21,15 @@ namespace GodotTscnParser.Test.Grammar
             }
         }
         [TestFixture]
+        public class SimpleObject: GodotProjParserTest
+        {
+            [TestCase("PackedStringArray(\"4.0\", \"C#\", \"Mobile\")")]
+            public void GivenSample_DoesNotThrow(string input)
+            {
+                Run(input, p => p.simpleObject());
+            }
+        }
+        [TestFixture]
         public class SectionLine: GodotProjParserTest
         {
             [TestCase(GrammarGodotProjSamples.Test)]
@@ -64,6 +73,7 @@ namespace GodotTscnParser.Test.Grammar
         public class File : GodotProjParserTest
         {
             [TestCase(GrammarGodotProjSamples.First)]
+            [TestCase(GrammarGodotProjSamples.DodgeTheCreeps)]
             public void TestValid(string input)
             {
                 Assert.DoesNotThrow(() => Run(input, p => p.file()));

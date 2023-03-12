@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from GodotProj.t4 by ANTLR 4.12.0
+// Generated from .\GodotProj.g4 by ANTLR 4.12.0
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -44,15 +44,16 @@ public partial class GodotProjParser : Parser {
 		RULE_file = 0, RULE_section = 1, RULE_sectionName = 2, RULE_sectionLine = 3, 
 		RULE_object = 4, RULE_objectProperty = 5, RULE_property = 6, RULE_propertyValue = 7, 
 		RULE_propertyValueArray = 8, RULE_propertyObjectArray = 9, RULE_propertyObject = 10, 
-		RULE_propertyObjectName = 11, RULE_propertyObjectTypeName = 12, RULE_propertyName = 13, 
-		RULE_numericStructure = 14, RULE_complexValue = 15, RULE_pair = 16, RULE_pairName = 17, 
-		RULE_complexPairName = 18, RULE_complexPair = 19, RULE_value = 20, RULE_number = 21;
+		RULE_simpleObject = 11, RULE_propertyObjectName = 12, RULE_propertyObjectTypeName = 13, 
+		RULE_propertyName = 14, RULE_numericStructure = 15, RULE_complexValue = 16, 
+		RULE_pair = 17, RULE_pairName = 18, RULE_complexPairName = 19, RULE_complexPair = 20, 
+		RULE_value = 21, RULE_number = 22;
 	public static readonly string[] ruleNames = {
 		"file", "section", "sectionName", "sectionLine", "object", "objectProperty", 
 		"property", "propertyValue", "propertyValueArray", "propertyObjectArray", 
-		"propertyObject", "propertyObjectName", "propertyObjectTypeName", "propertyName", 
-		"numericStructure", "complexValue", "pair", "pairName", "complexPairName", 
-		"complexPair", "value", "number"
+		"propertyObject", "simpleObject", "propertyObjectName", "propertyObjectTypeName", 
+		"propertyName", "numericStructure", "complexValue", "pair", "pairName", 
+		"complexPairName", "complexPair", "value", "number"
 	};
 
 	private static readonly string[] _LiteralNames = {
@@ -75,7 +76,7 @@ public partial class GodotProjParser : Parser {
 		}
 	}
 
-	public override string GrammarFileName { get { return "GodotProj.t4"; } }
+	public override string GrammarFileName { get { return "GodotProj.g4"; } }
 
 	public override string[] RuleNames { get { return ruleNames; } }
 
@@ -137,13 +138,13 @@ public partial class GodotProjParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 47;
+			State = 49;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMENT || _la==EOL) {
 				{
 				{
-				State = 44;
+				State = 46;
 				_la = TokenStream.LA(1);
 				if ( !(_la==COMMENT || _la==EOL) ) {
 				ErrorHandler.RecoverInline(this);
@@ -154,23 +155,23 @@ public partial class GodotProjParser : Parser {
 				}
 				}
 				}
-				State = 49;
+				State = 51;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 50;
-			Match(T__0);
-			State = 51;
-			Match(T__1);
 			State = 52;
+			Match(T__0);
+			State = 53;
+			Match(T__1);
+			State = 54;
 			Match(NUMBER);
-			State = 56;
+			State = 58;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMENT || _la==EOL) {
 				{
 				{
-				State = 53;
+				State = 55;
 				_la = TokenStream.LA(1);
 				if ( !(_la==COMMENT || _la==EOL) ) {
 				ErrorHandler.RecoverInline(this);
@@ -181,21 +182,21 @@ public partial class GodotProjParser : Parser {
 				}
 				}
 				}
-				State = 58;
+				State = 60;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 62;
+			State = 64;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==START_BRACKET) {
 				{
 				{
-				State = 59;
+				State = 61;
 				section();
 				}
 				}
-				State = 64;
+				State = 66;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -254,13 +255,13 @@ public partial class GodotProjParser : Parser {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 65;
-			Match(START_BRACKET);
-			State = 66;
-			sectionName();
 			State = 67;
-			Match(END_BRACKET);
+			Match(START_BRACKET);
+			State = 68;
+			sectionName();
 			State = 69;
+			Match(END_BRACKET);
+			State = 71;
 			ErrorHandler.Sync(this);
 			_alt = 1;
 			do {
@@ -268,7 +269,7 @@ public partial class GodotProjParser : Parser {
 				case 1:
 					{
 					{
-					State = 68;
+					State = 70;
 					Match(EOL);
 					}
 					}
@@ -276,21 +277,21 @@ public partial class GodotProjParser : Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				State = 71;
+				State = 73;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,3,Context);
 			} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-			State = 76;
+			State = 78;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 790528L) != 0)) {
 				{
 				{
-				State = 73;
+				State = 75;
 				sectionLine();
 				}
 				}
-				State = 78;
+				State = 80;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -333,7 +334,7 @@ public partial class GodotProjParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 79;
+			State = 81;
 			Match(KEY);
 			}
 		}
@@ -377,29 +378,29 @@ public partial class GodotProjParser : Parser {
 		EnterRule(_localctx, 6, RULE_sectionLine);
 		int _la;
 		try {
-			State = 86;
+			State = 88;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case EOL:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 81;
+				State = 83;
 				Match(EOL);
 				}
 				break;
 			case COMMENT:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 82;
+				State = 84;
 				Match(COMMENT);
 				}
 				break;
 			case KEY:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 83;
+				State = 85;
 				complexPair();
-				State = 84;
+				State = 86;
 				_la = TokenStream.LA(1);
 				if ( !(_la==COMMENT || _la==EOL) ) {
 				ErrorHandler.RecoverInline(this);
@@ -467,48 +468,48 @@ public partial class GodotProjParser : Parser {
 		EnterRule(_localctx, 8, RULE_object);
 		int _la;
 		try {
-			State = 107;
+			State = 109;
 			ErrorHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(TokenStream,8,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 88;
+				State = 90;
 				Match(T__2);
-				State = 89;
+				State = 91;
 				objectProperty();
-				State = 94;
+				State = 96;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 90;
+					State = 92;
 					Match(COMMA);
-					State = 91;
+					State = 93;
 					objectProperty();
 					}
 					}
-					State = 96;
+					State = 98;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
-				State = 97;
+				State = 99;
 				Match(T__3);
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 99;
+				State = 101;
 				Match(T__2);
-				State = 103;
+				State = 105;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMENT || _la==EOL) {
 					{
 					{
-					State = 100;
+					State = 102;
 					_la = TokenStream.LA(1);
 					if ( !(_la==COMMENT || _la==EOL) ) {
 					ErrorHandler.RecoverInline(this);
@@ -519,11 +520,11 @@ public partial class GodotProjParser : Parser {
 					}
 					}
 					}
-					State = 105;
+					State = 107;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
-				State = 106;
+				State = 108;
 				Match(T__3);
 				}
 				break;
@@ -577,13 +578,13 @@ public partial class GodotProjParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 112;
+			State = 114;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMENT || _la==EOL) {
 				{
 				{
-				State = 109;
+				State = 111;
 				_la = TokenStream.LA(1);
 				if ( !(_la==COMMENT || _la==EOL) ) {
 				ErrorHandler.RecoverInline(this);
@@ -594,19 +595,19 @@ public partial class GodotProjParser : Parser {
 				}
 				}
 				}
-				State = 114;
+				State = 116;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 115;
+			State = 117;
 			property();
-			State = 119;
+			State = 121;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMENT || _la==EOL) {
 				{
 				{
-				State = 116;
+				State = 118;
 				_la = TokenStream.LA(1);
 				if ( !(_la==COMMENT || _la==EOL) ) {
 				ErrorHandler.RecoverInline(this);
@@ -617,7 +618,7 @@ public partial class GodotProjParser : Parser {
 				}
 				}
 				}
-				State = 121;
+				State = 123;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -665,11 +666,11 @@ public partial class GodotProjParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 122;
-			propertyName();
-			State = 123;
-			Match(T__4);
 			State = 124;
+			propertyName();
+			State = 125;
+			Match(T__4);
+			State = 126;
 			propertyValue();
 			}
 		}
@@ -722,41 +723,41 @@ public partial class GodotProjParser : Parser {
 		PropertyValueContext _localctx = new PropertyValueContext(Context, State);
 		EnterRule(_localctx, 14, RULE_propertyValue);
 		try {
-			State = 131;
+			State = 133;
 			ErrorHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(TokenStream,11,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 126;
+				State = 128;
 				@object();
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 127;
+				State = 129;
 				propertyValueArray();
 				}
 				break;
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 128;
+				State = 130;
 				propertyObjectArray();
 				}
 				break;
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 129;
+				State = 131;
 				numericStructure();
 				}
 				break;
 			case 5:
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 130;
+				State = 132;
 				value();
 				}
 				break;
@@ -809,42 +810,42 @@ public partial class GodotProjParser : Parser {
 		EnterRule(_localctx, 16, RULE_propertyValueArray);
 		int _la;
 		try {
-			State = 146;
+			State = 148;
 			ErrorHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(TokenStream,13,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 133;
+				State = 135;
 				Match(START_BRACKET);
-				State = 134;
+				State = 136;
 				propertyValue();
-				State = 139;
+				State = 141;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 135;
+					State = 137;
 					Match(COMMA);
-					State = 136;
+					State = 138;
 					propertyValue();
 					}
 					}
-					State = 141;
+					State = 143;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
-				State = 142;
+				State = 144;
 				Match(END_BRACKET);
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 144;
+				State = 146;
 				Match(START_BRACKET);
-				State = 145;
+				State = 147;
 				Match(END_BRACKET);
 				}
 				break;
@@ -904,85 +905,85 @@ public partial class GodotProjParser : Parser {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 148;
+			State = 150;
 			Match(START_BRACKET);
-			State = 152;
+			State = 154;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==EOL) {
 				{
 				{
-				State = 149;
+				State = 151;
 				Match(EOL);
 				}
 				}
-				State = 154;
+				State = 156;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 155;
+			State = 157;
 			propertyObject();
-			State = 172;
+			State = 174;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,17,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					State = 159;
+					State = 161;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 					while (_la==EOL) {
 						{
 						{
-						State = 156;
+						State = 158;
 						Match(EOL);
 						}
 						}
-						State = 161;
-						ErrorHandler.Sync(this);
-						_la = TokenStream.LA(1);
-					}
-					State = 162;
-					Match(COMMA);
-					State = 166;
-					ErrorHandler.Sync(this);
-					_la = TokenStream.LA(1);
-					while (_la==EOL) {
-						{
-						{
 						State = 163;
-						Match(EOL);
-						}
-						}
-						State = 168;
 						ErrorHandler.Sync(this);
 						_la = TokenStream.LA(1);
 					}
-					State = 169;
+					State = 164;
+					Match(COMMA);
+					State = 168;
+					ErrorHandler.Sync(this);
+					_la = TokenStream.LA(1);
+					while (_la==EOL) {
+						{
+						{
+						State = 165;
+						Match(EOL);
+						}
+						}
+						State = 170;
+						ErrorHandler.Sync(this);
+						_la = TokenStream.LA(1);
+					}
+					State = 171;
 					propertyObject();
 					}
 					} 
 				}
-				State = 174;
+				State = 176;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,17,Context);
 			}
-			State = 178;
+			State = 180;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==EOL) {
 				{
 				{
-				State = 175;
+				State = 177;
 				Match(EOL);
 				}
 				}
-				State = 180;
+				State = 182;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 181;
+			State = 183;
 			Match(END_BRACKET);
 			}
 		}
@@ -1039,30 +1040,123 @@ public partial class GodotProjParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 183;
-			propertyObjectTypeName();
-			State = 184;
-			Match(T__5);
 			State = 185;
+			propertyObjectTypeName();
+			State = 186;
+			Match(T__5);
+			State = 187;
 			propertyObjectName();
-			State = 190;
+			State = 192;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				State = 186;
+				State = 188;
 				Match(COMMA);
-				State = 187;
+				State = 189;
 				property();
 				}
 				}
-				State = 192;
+				State = 194;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 193;
+			State = 195;
 			Match(T__6);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class SimpleObjectContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public PropertyObjectTypeNameContext propertyObjectTypeName() {
+			return GetRuleContext<PropertyObjectTypeNameContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public PropertyValueContext[] propertyValue() {
+			return GetRuleContexts<PropertyValueContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public PropertyValueContext propertyValue(int i) {
+			return GetRuleContext<PropertyValueContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] COMMA() { return GetTokens(GodotProjParser.COMMA); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COMMA(int i) {
+			return GetToken(GodotProjParser.COMMA, i);
+		}
+		public SimpleObjectContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_simpleObject; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IGodotProjListener typedListener = listener as IGodotProjListener;
+			if (typedListener != null) typedListener.EnterSimpleObject(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IGodotProjListener typedListener = listener as IGodotProjListener;
+			if (typedListener != null) typedListener.ExitSimpleObject(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public SimpleObjectContext simpleObject() {
+		SimpleObjectContext _localctx = new SimpleObjectContext(Context, State);
+		EnterRule(_localctx, 22, RULE_simpleObject);
+		int _la;
+		try {
+			State = 213;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,21,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 197;
+				propertyObjectTypeName();
+				State = 198;
+				Match(T__5);
+				State = 199;
+				propertyValue();
+				State = 204;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				while (_la==COMMA) {
+					{
+					{
+					State = 200;
+					Match(COMMA);
+					State = 201;
+					propertyValue();
+					}
+					}
+					State = 206;
+					ErrorHandler.Sync(this);
+					_la = TokenStream.LA(1);
+				}
+				State = 207;
+				Match(T__6);
+				}
+				break;
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 209;
+				propertyObjectTypeName();
+				State = 210;
+				Match(T__5);
+				State = 211;
+				Match(T__6);
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -1099,12 +1193,12 @@ public partial class GodotProjParser : Parser {
 	[RuleVersion(0)]
 	public PropertyObjectNameContext propertyObjectName() {
 		PropertyObjectNameContext _localctx = new PropertyObjectNameContext(Context, State);
-		EnterRule(_localctx, 22, RULE_propertyObjectName);
+		EnterRule(_localctx, 24, RULE_propertyObjectName);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 195;
+			State = 215;
 			_la = TokenStream.LA(1);
 			if ( !(_la==KEY || _la==STRING) ) {
 			ErrorHandler.RecoverInline(this);
@@ -1148,11 +1242,11 @@ public partial class GodotProjParser : Parser {
 	[RuleVersion(0)]
 	public PropertyObjectTypeNameContext propertyObjectTypeName() {
 		PropertyObjectTypeNameContext _localctx = new PropertyObjectTypeNameContext(Context, State);
-		EnterRule(_localctx, 24, RULE_propertyObjectTypeName);
+		EnterRule(_localctx, 26, RULE_propertyObjectTypeName);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 197;
+			State = 217;
 			Match(KEY);
 			}
 		}
@@ -1189,11 +1283,11 @@ public partial class GodotProjParser : Parser {
 	[RuleVersion(0)]
 	public PropertyNameContext propertyName() {
 		PropertyNameContext _localctx = new PropertyNameContext(Context, State);
-		EnterRule(_localctx, 26, RULE_propertyName);
+		EnterRule(_localctx, 28, RULE_propertyName);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 199;
+			State = 219;
 			Match(STRING);
 			}
 		}
@@ -1238,34 +1332,34 @@ public partial class GodotProjParser : Parser {
 	[RuleVersion(0)]
 	public NumericStructureContext numericStructure() {
 		NumericStructureContext _localctx = new NumericStructureContext(Context, State);
-		EnterRule(_localctx, 28, RULE_numericStructure);
+		EnterRule(_localctx, 30, RULE_numericStructure);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 201;
+			State = 221;
 			Match(KEY);
-			State = 202;
+			State = 222;
 			Match(T__5);
-			State = 203;
+			State = 223;
 			Match(NUMBER);
-			State = 206;
+			State = 226;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			do {
 				{
 				{
-				State = 204;
+				State = 224;
 				Match(COMMA);
-				State = 205;
+				State = 225;
 				Match(NUMBER);
 				}
 				}
-				State = 208;
+				State = 228;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			} while ( _la==COMMA );
-			State = 210;
+			State = 230;
 			Match(T__6);
 			}
 		}
@@ -1283,6 +1377,9 @@ public partial class GodotProjParser : Parser {
 	public partial class ComplexValueContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ObjectContext @object() {
 			return GetRuleContext<ObjectContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public SimpleObjectContext simpleObject() {
+			return GetRuleContext<SimpleObjectContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public PropertyObjectContext propertyObject() {
 			return GetRuleContext<PropertyObjectContext>(0);
@@ -1313,36 +1410,43 @@ public partial class GodotProjParser : Parser {
 	[RuleVersion(0)]
 	public ComplexValueContext complexValue() {
 		ComplexValueContext _localctx = new ComplexValueContext(Context, State);
-		EnterRule(_localctx, 30, RULE_complexValue);
+		EnterRule(_localctx, 32, RULE_complexValue);
 		try {
-			State = 216;
+			State = 237;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,21,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,23,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 212;
+				State = 232;
 				@object();
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 213;
-				propertyObject();
+				State = 233;
+				simpleObject();
 				}
 				break;
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 214;
-				numericStructure();
+				State = 234;
+				propertyObject();
 				}
 				break;
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 215;
+				State = 235;
+				numericStructure();
+				}
+				break;
+			case 5:
+				EnterOuterAlt(_localctx, 5);
+				{
+				State = 236;
 				value();
 				}
 				break;
@@ -1386,15 +1490,15 @@ public partial class GodotProjParser : Parser {
 	[RuleVersion(0)]
 	public PairContext pair() {
 		PairContext _localctx = new PairContext(Context, State);
-		EnterRule(_localctx, 32, RULE_pair);
+		EnterRule(_localctx, 34, RULE_pair);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 218;
+			State = 239;
 			pairName();
-			State = 219;
+			State = 240;
 			Match(T__1);
-			State = 220;
+			State = 241;
 			value();
 			}
 		}
@@ -1431,11 +1535,11 @@ public partial class GodotProjParser : Parser {
 	[RuleVersion(0)]
 	public PairNameContext pairName() {
 		PairNameContext _localctx = new PairNameContext(Context, State);
-		EnterRule(_localctx, 34, RULE_pairName);
+		EnterRule(_localctx, 36, RULE_pairName);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 222;
+			State = 243;
 			Match(KEY);
 			}
 		}
@@ -1475,30 +1579,30 @@ public partial class GodotProjParser : Parser {
 	[RuleVersion(0)]
 	public ComplexPairNameContext complexPairName() {
 		ComplexPairNameContext _localctx = new ComplexPairNameContext(Context, State);
-		EnterRule(_localctx, 36, RULE_complexPairName);
+		EnterRule(_localctx, 38, RULE_complexPairName);
 		int _la;
 		try {
-			State = 232;
+			State = 253;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,23,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,25,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 224;
+				State = 245;
 				Match(KEY);
-				State = 227;
+				State = 248;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				do {
 					{
 					{
-					State = 225;
+					State = 246;
 					Match(T__7);
-					State = 226;
+					State = 247;
 					Match(KEY);
 					}
 					}
-					State = 229;
+					State = 250;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				} while ( _la==T__7 );
@@ -1507,7 +1611,7 @@ public partial class GodotProjParser : Parser {
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 231;
+				State = 252;
 				Match(KEY);
 				}
 				break;
@@ -1551,15 +1655,15 @@ public partial class GodotProjParser : Parser {
 	[RuleVersion(0)]
 	public ComplexPairContext complexPair() {
 		ComplexPairContext _localctx = new ComplexPairContext(Context, State);
-		EnterRule(_localctx, 38, RULE_complexPair);
+		EnterRule(_localctx, 40, RULE_complexPair);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 234;
+			State = 255;
 			complexPairName();
-			State = 235;
+			State = 256;
 			Match(T__1);
-			State = 236;
+			State = 257;
 			complexValue();
 			}
 		}
@@ -1597,12 +1701,12 @@ public partial class GodotProjParser : Parser {
 	[RuleVersion(0)]
 	public ValueContext value() {
 		ValueContext _localctx = new ValueContext(Context, State);
-		EnterRule(_localctx, 40, RULE_value);
+		EnterRule(_localctx, 42, RULE_value);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 238;
+			State = 259;
 			_la = TokenStream.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 142848L) != 0)) ) {
 			ErrorHandler.RecoverInline(this);
@@ -1646,11 +1750,11 @@ public partial class GodotProjParser : Parser {
 	[RuleVersion(0)]
 	public NumberContext number() {
 		NumberContext _localctx = new NumberContext(Context, State);
-		EnterRule(_localctx, 42, RULE_number);
+		EnterRule(_localctx, 44, RULE_number);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 240;
+			State = 261;
 			Match(NUMBER);
 			}
 		}
@@ -1666,82 +1770,89 @@ public partial class GodotProjParser : Parser {
 	}
 
 	private static int[] _serializedATN = {
-		4,1,20,243,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
+		4,1,20,264,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
 		7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,14,
 		2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,7,20,2,21,7,21,
-		1,0,5,0,46,8,0,10,0,12,0,49,9,0,1,0,1,0,1,0,1,0,5,0,55,8,0,10,0,12,0,58,
-		9,0,1,0,5,0,61,8,0,10,0,12,0,64,9,0,1,1,1,1,1,1,1,1,4,1,70,8,1,11,1,12,
-		1,71,1,1,5,1,75,8,1,10,1,12,1,78,9,1,1,2,1,2,1,3,1,3,1,3,1,3,1,3,3,3,87,
-		8,3,1,4,1,4,1,4,1,4,5,4,93,8,4,10,4,12,4,96,9,4,1,4,1,4,1,4,1,4,5,4,102,
-		8,4,10,4,12,4,105,9,4,1,4,3,4,108,8,4,1,5,5,5,111,8,5,10,5,12,5,114,9,
-		5,1,5,1,5,5,5,118,8,5,10,5,12,5,121,9,5,1,6,1,6,1,6,1,6,1,7,1,7,1,7,1,
-		7,1,7,3,7,132,8,7,1,8,1,8,1,8,1,8,5,8,138,8,8,10,8,12,8,141,9,8,1,8,1,
-		8,1,8,1,8,3,8,147,8,8,1,9,1,9,5,9,151,8,9,10,9,12,9,154,9,9,1,9,1,9,5,
-		9,158,8,9,10,9,12,9,161,9,9,1,9,1,9,5,9,165,8,9,10,9,12,9,168,9,9,1,9,
-		5,9,171,8,9,10,9,12,9,174,9,9,1,9,5,9,177,8,9,10,9,12,9,180,9,9,1,9,1,
-		9,1,10,1,10,1,10,1,10,1,10,5,10,189,8,10,10,10,12,10,192,9,10,1,10,1,10,
-		1,11,1,11,1,12,1,12,1,13,1,13,1,14,1,14,1,14,1,14,1,14,4,14,207,8,14,11,
-		14,12,14,208,1,14,1,14,1,15,1,15,1,15,1,15,3,15,217,8,15,1,16,1,16,1,16,
-		1,16,1,17,1,17,1,18,1,18,1,18,4,18,228,8,18,11,18,12,18,229,1,18,3,18,
-		233,8,18,1,19,1,19,1,19,1,19,1,20,1,20,1,21,1,21,1,21,0,0,22,0,2,4,6,8,
-		10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,0,3,1,0,18,19,2,0,12,
-		12,17,17,3,0,9,11,13,13,17,17,250,0,47,1,0,0,0,2,65,1,0,0,0,4,79,1,0,0,
-		0,6,86,1,0,0,0,8,107,1,0,0,0,10,112,1,0,0,0,12,122,1,0,0,0,14,131,1,0,
-		0,0,16,146,1,0,0,0,18,148,1,0,0,0,20,183,1,0,0,0,22,195,1,0,0,0,24,197,
-		1,0,0,0,26,199,1,0,0,0,28,201,1,0,0,0,30,216,1,0,0,0,32,218,1,0,0,0,34,
-		222,1,0,0,0,36,232,1,0,0,0,38,234,1,0,0,0,40,238,1,0,0,0,42,240,1,0,0,
-		0,44,46,7,0,0,0,45,44,1,0,0,0,46,49,1,0,0,0,47,45,1,0,0,0,47,48,1,0,0,
-		0,48,50,1,0,0,0,49,47,1,0,0,0,50,51,5,1,0,0,51,52,5,2,0,0,52,56,5,13,0,
-		0,53,55,7,0,0,0,54,53,1,0,0,0,55,58,1,0,0,0,56,54,1,0,0,0,56,57,1,0,0,
-		0,57,62,1,0,0,0,58,56,1,0,0,0,59,61,3,2,1,0,60,59,1,0,0,0,61,64,1,0,0,
-		0,62,60,1,0,0,0,62,63,1,0,0,0,63,1,1,0,0,0,64,62,1,0,0,0,65,66,5,15,0,
-		0,66,67,3,4,2,0,67,69,5,16,0,0,68,70,5,19,0,0,69,68,1,0,0,0,70,71,1,0,
-		0,0,71,69,1,0,0,0,71,72,1,0,0,0,72,76,1,0,0,0,73,75,3,6,3,0,74,73,1,0,
-		0,0,75,78,1,0,0,0,76,74,1,0,0,0,76,77,1,0,0,0,77,3,1,0,0,0,78,76,1,0,0,
-		0,79,80,5,12,0,0,80,5,1,0,0,0,81,87,5,19,0,0,82,87,5,18,0,0,83,84,3,38,
-		19,0,84,85,7,0,0,0,85,87,1,0,0,0,86,81,1,0,0,0,86,82,1,0,0,0,86,83,1,0,
-		0,0,87,7,1,0,0,0,88,89,5,3,0,0,89,94,3,10,5,0,90,91,5,14,0,0,91,93,3,10,
-		5,0,92,90,1,0,0,0,93,96,1,0,0,0,94,92,1,0,0,0,94,95,1,0,0,0,95,97,1,0,
-		0,0,96,94,1,0,0,0,97,98,5,4,0,0,98,108,1,0,0,0,99,103,5,3,0,0,100,102,
-		7,0,0,0,101,100,1,0,0,0,102,105,1,0,0,0,103,101,1,0,0,0,103,104,1,0,0,
-		0,104,106,1,0,0,0,105,103,1,0,0,0,106,108,5,4,0,0,107,88,1,0,0,0,107,99,
-		1,0,0,0,108,9,1,0,0,0,109,111,7,0,0,0,110,109,1,0,0,0,111,114,1,0,0,0,
-		112,110,1,0,0,0,112,113,1,0,0,0,113,115,1,0,0,0,114,112,1,0,0,0,115,119,
-		3,12,6,0,116,118,7,0,0,0,117,116,1,0,0,0,118,121,1,0,0,0,119,117,1,0,0,
-		0,119,120,1,0,0,0,120,11,1,0,0,0,121,119,1,0,0,0,122,123,3,26,13,0,123,
-		124,5,5,0,0,124,125,3,14,7,0,125,13,1,0,0,0,126,132,3,8,4,0,127,132,3,
-		16,8,0,128,132,3,18,9,0,129,132,3,28,14,0,130,132,3,40,20,0,131,126,1,
-		0,0,0,131,127,1,0,0,0,131,128,1,0,0,0,131,129,1,0,0,0,131,130,1,0,0,0,
-		132,15,1,0,0,0,133,134,5,15,0,0,134,139,3,14,7,0,135,136,5,14,0,0,136,
-		138,3,14,7,0,137,135,1,0,0,0,138,141,1,0,0,0,139,137,1,0,0,0,139,140,1,
-		0,0,0,140,142,1,0,0,0,141,139,1,0,0,0,142,143,5,16,0,0,143,147,1,0,0,0,
-		144,145,5,15,0,0,145,147,5,16,0,0,146,133,1,0,0,0,146,144,1,0,0,0,147,
-		17,1,0,0,0,148,152,5,15,0,0,149,151,5,19,0,0,150,149,1,0,0,0,151,154,1,
-		0,0,0,152,150,1,0,0,0,152,153,1,0,0,0,153,155,1,0,0,0,154,152,1,0,0,0,
-		155,172,3,20,10,0,156,158,5,19,0,0,157,156,1,0,0,0,158,161,1,0,0,0,159,
-		157,1,0,0,0,159,160,1,0,0,0,160,162,1,0,0,0,161,159,1,0,0,0,162,166,5,
-		14,0,0,163,165,5,19,0,0,164,163,1,0,0,0,165,168,1,0,0,0,166,164,1,0,0,
-		0,166,167,1,0,0,0,167,169,1,0,0,0,168,166,1,0,0,0,169,171,3,20,10,0,170,
-		159,1,0,0,0,171,174,1,0,0,0,172,170,1,0,0,0,172,173,1,0,0,0,173,178,1,
-		0,0,0,174,172,1,0,0,0,175,177,5,19,0,0,176,175,1,0,0,0,177,180,1,0,0,0,
-		178,176,1,0,0,0,178,179,1,0,0,0,179,181,1,0,0,0,180,178,1,0,0,0,181,182,
-		5,16,0,0,182,19,1,0,0,0,183,184,3,24,12,0,184,185,5,6,0,0,185,190,3,22,
-		11,0,186,187,5,14,0,0,187,189,3,12,6,0,188,186,1,0,0,0,189,192,1,0,0,0,
-		190,188,1,0,0,0,190,191,1,0,0,0,191,193,1,0,0,0,192,190,1,0,0,0,193,194,
-		5,7,0,0,194,21,1,0,0,0,195,196,7,1,0,0,196,23,1,0,0,0,197,198,5,12,0,0,
-		198,25,1,0,0,0,199,200,5,17,0,0,200,27,1,0,0,0,201,202,5,12,0,0,202,203,
-		5,6,0,0,203,206,5,13,0,0,204,205,5,14,0,0,205,207,5,13,0,0,206,204,1,0,
-		0,0,207,208,1,0,0,0,208,206,1,0,0,0,208,209,1,0,0,0,209,210,1,0,0,0,210,
-		211,5,7,0,0,211,29,1,0,0,0,212,217,3,8,4,0,213,217,3,20,10,0,214,217,3,
-		28,14,0,215,217,3,40,20,0,216,212,1,0,0,0,216,213,1,0,0,0,216,214,1,0,
-		0,0,216,215,1,0,0,0,217,31,1,0,0,0,218,219,3,34,17,0,219,220,5,2,0,0,220,
-		221,3,40,20,0,221,33,1,0,0,0,222,223,5,12,0,0,223,35,1,0,0,0,224,227,5,
-		12,0,0,225,226,5,8,0,0,226,228,5,12,0,0,227,225,1,0,0,0,228,229,1,0,0,
-		0,229,227,1,0,0,0,229,230,1,0,0,0,230,233,1,0,0,0,231,233,5,12,0,0,232,
-		224,1,0,0,0,232,231,1,0,0,0,233,37,1,0,0,0,234,235,3,36,18,0,235,236,5,
-		2,0,0,236,237,3,30,15,0,237,39,1,0,0,0,238,239,7,2,0,0,239,41,1,0,0,0,
-		240,241,5,13,0,0,241,43,1,0,0,0,24,47,56,62,71,76,86,94,103,107,112,119,
-		131,139,146,152,159,166,172,178,190,208,216,229,232
+		2,22,7,22,1,0,5,0,48,8,0,10,0,12,0,51,9,0,1,0,1,0,1,0,1,0,5,0,57,8,0,10,
+		0,12,0,60,9,0,1,0,5,0,63,8,0,10,0,12,0,66,9,0,1,1,1,1,1,1,1,1,4,1,72,8,
+		1,11,1,12,1,73,1,1,5,1,77,8,1,10,1,12,1,80,9,1,1,2,1,2,1,3,1,3,1,3,1,3,
+		1,3,3,3,89,8,3,1,4,1,4,1,4,1,4,5,4,95,8,4,10,4,12,4,98,9,4,1,4,1,4,1,4,
+		1,4,5,4,104,8,4,10,4,12,4,107,9,4,1,4,3,4,110,8,4,1,5,5,5,113,8,5,10,5,
+		12,5,116,9,5,1,5,1,5,5,5,120,8,5,10,5,12,5,123,9,5,1,6,1,6,1,6,1,6,1,7,
+		1,7,1,7,1,7,1,7,3,7,134,8,7,1,8,1,8,1,8,1,8,5,8,140,8,8,10,8,12,8,143,
+		9,8,1,8,1,8,1,8,1,8,3,8,149,8,8,1,9,1,9,5,9,153,8,9,10,9,12,9,156,9,9,
+		1,9,1,9,5,9,160,8,9,10,9,12,9,163,9,9,1,9,1,9,5,9,167,8,9,10,9,12,9,170,
+		9,9,1,9,5,9,173,8,9,10,9,12,9,176,9,9,1,9,5,9,179,8,9,10,9,12,9,182,9,
+		9,1,9,1,9,1,10,1,10,1,10,1,10,1,10,5,10,191,8,10,10,10,12,10,194,9,10,
+		1,10,1,10,1,11,1,11,1,11,1,11,1,11,5,11,203,8,11,10,11,12,11,206,9,11,
+		1,11,1,11,1,11,1,11,1,11,1,11,3,11,214,8,11,1,12,1,12,1,13,1,13,1,14,1,
+		14,1,15,1,15,1,15,1,15,1,15,4,15,227,8,15,11,15,12,15,228,1,15,1,15,1,
+		16,1,16,1,16,1,16,1,16,3,16,238,8,16,1,17,1,17,1,17,1,17,1,18,1,18,1,19,
+		1,19,1,19,4,19,249,8,19,11,19,12,19,250,1,19,3,19,254,8,19,1,20,1,20,1,
+		20,1,20,1,21,1,21,1,22,1,22,1,22,0,0,23,0,2,4,6,8,10,12,14,16,18,20,22,
+		24,26,28,30,32,34,36,38,40,42,44,0,3,1,0,18,19,2,0,12,12,17,17,3,0,9,11,
+		13,13,17,17,273,0,49,1,0,0,0,2,67,1,0,0,0,4,81,1,0,0,0,6,88,1,0,0,0,8,
+		109,1,0,0,0,10,114,1,0,0,0,12,124,1,0,0,0,14,133,1,0,0,0,16,148,1,0,0,
+		0,18,150,1,0,0,0,20,185,1,0,0,0,22,213,1,0,0,0,24,215,1,0,0,0,26,217,1,
+		0,0,0,28,219,1,0,0,0,30,221,1,0,0,0,32,237,1,0,0,0,34,239,1,0,0,0,36,243,
+		1,0,0,0,38,253,1,0,0,0,40,255,1,0,0,0,42,259,1,0,0,0,44,261,1,0,0,0,46,
+		48,7,0,0,0,47,46,1,0,0,0,48,51,1,0,0,0,49,47,1,0,0,0,49,50,1,0,0,0,50,
+		52,1,0,0,0,51,49,1,0,0,0,52,53,5,1,0,0,53,54,5,2,0,0,54,58,5,13,0,0,55,
+		57,7,0,0,0,56,55,1,0,0,0,57,60,1,0,0,0,58,56,1,0,0,0,58,59,1,0,0,0,59,
+		64,1,0,0,0,60,58,1,0,0,0,61,63,3,2,1,0,62,61,1,0,0,0,63,66,1,0,0,0,64,
+		62,1,0,0,0,64,65,1,0,0,0,65,1,1,0,0,0,66,64,1,0,0,0,67,68,5,15,0,0,68,
+		69,3,4,2,0,69,71,5,16,0,0,70,72,5,19,0,0,71,70,1,0,0,0,72,73,1,0,0,0,73,
+		71,1,0,0,0,73,74,1,0,0,0,74,78,1,0,0,0,75,77,3,6,3,0,76,75,1,0,0,0,77,
+		80,1,0,0,0,78,76,1,0,0,0,78,79,1,0,0,0,79,3,1,0,0,0,80,78,1,0,0,0,81,82,
+		5,12,0,0,82,5,1,0,0,0,83,89,5,19,0,0,84,89,5,18,0,0,85,86,3,40,20,0,86,
+		87,7,0,0,0,87,89,1,0,0,0,88,83,1,0,0,0,88,84,1,0,0,0,88,85,1,0,0,0,89,
+		7,1,0,0,0,90,91,5,3,0,0,91,96,3,10,5,0,92,93,5,14,0,0,93,95,3,10,5,0,94,
+		92,1,0,0,0,95,98,1,0,0,0,96,94,1,0,0,0,96,97,1,0,0,0,97,99,1,0,0,0,98,
+		96,1,0,0,0,99,100,5,4,0,0,100,110,1,0,0,0,101,105,5,3,0,0,102,104,7,0,
+		0,0,103,102,1,0,0,0,104,107,1,0,0,0,105,103,1,0,0,0,105,106,1,0,0,0,106,
+		108,1,0,0,0,107,105,1,0,0,0,108,110,5,4,0,0,109,90,1,0,0,0,109,101,1,0,
+		0,0,110,9,1,0,0,0,111,113,7,0,0,0,112,111,1,0,0,0,113,116,1,0,0,0,114,
+		112,1,0,0,0,114,115,1,0,0,0,115,117,1,0,0,0,116,114,1,0,0,0,117,121,3,
+		12,6,0,118,120,7,0,0,0,119,118,1,0,0,0,120,123,1,0,0,0,121,119,1,0,0,0,
+		121,122,1,0,0,0,122,11,1,0,0,0,123,121,1,0,0,0,124,125,3,28,14,0,125,126,
+		5,5,0,0,126,127,3,14,7,0,127,13,1,0,0,0,128,134,3,8,4,0,129,134,3,16,8,
+		0,130,134,3,18,9,0,131,134,3,30,15,0,132,134,3,42,21,0,133,128,1,0,0,0,
+		133,129,1,0,0,0,133,130,1,0,0,0,133,131,1,0,0,0,133,132,1,0,0,0,134,15,
+		1,0,0,0,135,136,5,15,0,0,136,141,3,14,7,0,137,138,5,14,0,0,138,140,3,14,
+		7,0,139,137,1,0,0,0,140,143,1,0,0,0,141,139,1,0,0,0,141,142,1,0,0,0,142,
+		144,1,0,0,0,143,141,1,0,0,0,144,145,5,16,0,0,145,149,1,0,0,0,146,147,5,
+		15,0,0,147,149,5,16,0,0,148,135,1,0,0,0,148,146,1,0,0,0,149,17,1,0,0,0,
+		150,154,5,15,0,0,151,153,5,19,0,0,152,151,1,0,0,0,153,156,1,0,0,0,154,
+		152,1,0,0,0,154,155,1,0,0,0,155,157,1,0,0,0,156,154,1,0,0,0,157,174,3,
+		20,10,0,158,160,5,19,0,0,159,158,1,0,0,0,160,163,1,0,0,0,161,159,1,0,0,
+		0,161,162,1,0,0,0,162,164,1,0,0,0,163,161,1,0,0,0,164,168,5,14,0,0,165,
+		167,5,19,0,0,166,165,1,0,0,0,167,170,1,0,0,0,168,166,1,0,0,0,168,169,1,
+		0,0,0,169,171,1,0,0,0,170,168,1,0,0,0,171,173,3,20,10,0,172,161,1,0,0,
+		0,173,176,1,0,0,0,174,172,1,0,0,0,174,175,1,0,0,0,175,180,1,0,0,0,176,
+		174,1,0,0,0,177,179,5,19,0,0,178,177,1,0,0,0,179,182,1,0,0,0,180,178,1,
+		0,0,0,180,181,1,0,0,0,181,183,1,0,0,0,182,180,1,0,0,0,183,184,5,16,0,0,
+		184,19,1,0,0,0,185,186,3,26,13,0,186,187,5,6,0,0,187,192,3,24,12,0,188,
+		189,5,14,0,0,189,191,3,12,6,0,190,188,1,0,0,0,191,194,1,0,0,0,192,190,
+		1,0,0,0,192,193,1,0,0,0,193,195,1,0,0,0,194,192,1,0,0,0,195,196,5,7,0,
+		0,196,21,1,0,0,0,197,198,3,26,13,0,198,199,5,6,0,0,199,204,3,14,7,0,200,
+		201,5,14,0,0,201,203,3,14,7,0,202,200,1,0,0,0,203,206,1,0,0,0,204,202,
+		1,0,0,0,204,205,1,0,0,0,205,207,1,0,0,0,206,204,1,0,0,0,207,208,5,7,0,
+		0,208,214,1,0,0,0,209,210,3,26,13,0,210,211,5,6,0,0,211,212,5,7,0,0,212,
+		214,1,0,0,0,213,197,1,0,0,0,213,209,1,0,0,0,214,23,1,0,0,0,215,216,7,1,
+		0,0,216,25,1,0,0,0,217,218,5,12,0,0,218,27,1,0,0,0,219,220,5,17,0,0,220,
+		29,1,0,0,0,221,222,5,12,0,0,222,223,5,6,0,0,223,226,5,13,0,0,224,225,5,
+		14,0,0,225,227,5,13,0,0,226,224,1,0,0,0,227,228,1,0,0,0,228,226,1,0,0,
+		0,228,229,1,0,0,0,229,230,1,0,0,0,230,231,5,7,0,0,231,31,1,0,0,0,232,238,
+		3,8,4,0,233,238,3,22,11,0,234,238,3,20,10,0,235,238,3,30,15,0,236,238,
+		3,42,21,0,237,232,1,0,0,0,237,233,1,0,0,0,237,234,1,0,0,0,237,235,1,0,
+		0,0,237,236,1,0,0,0,238,33,1,0,0,0,239,240,3,36,18,0,240,241,5,2,0,0,241,
+		242,3,42,21,0,242,35,1,0,0,0,243,244,5,12,0,0,244,37,1,0,0,0,245,248,5,
+		12,0,0,246,247,5,8,0,0,247,249,5,12,0,0,248,246,1,0,0,0,249,250,1,0,0,
+		0,250,248,1,0,0,0,250,251,1,0,0,0,251,254,1,0,0,0,252,254,5,12,0,0,253,
+		245,1,0,0,0,253,252,1,0,0,0,254,39,1,0,0,0,255,256,3,38,19,0,256,257,5,
+		2,0,0,257,258,3,32,16,0,258,41,1,0,0,0,259,260,7,2,0,0,260,43,1,0,0,0,
+		261,262,5,13,0,0,262,45,1,0,0,0,26,49,58,64,73,78,88,96,105,109,114,121,
+		133,141,148,154,161,168,174,180,192,204,213,228,237,250,253
 	};
 
 	public static readonly ATN _ATN =

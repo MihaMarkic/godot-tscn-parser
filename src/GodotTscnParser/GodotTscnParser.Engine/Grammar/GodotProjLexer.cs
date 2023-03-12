@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from GodotProj.t4 by ANTLR 4.12.0
+// Generated from .\GodotProj.g4 by ANTLR 4.12.0
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -81,7 +81,7 @@ public partial class GodotProjLexer : Lexer {
 		}
 	}
 
-	public override string GrammarFileName { get { return "GodotProj.t4"; } }
+	public override string GrammarFileName { get { return "GodotProj.g4"; } }
 
 	public override string[] RuleNames { get { return ruleNames; } }
 

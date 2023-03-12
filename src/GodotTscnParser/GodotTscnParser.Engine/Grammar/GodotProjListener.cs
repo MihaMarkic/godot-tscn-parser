@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from GodotProj.t4 by ANTLR 4.12.0
+// Generated from .\GodotProj.g4 by ANTLR 4.12.0
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -141,6 +141,16 @@ public interface IGodotProjListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitPropertyObject([NotNull] GodotProjParser.PropertyObjectContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="GodotProjParser.simpleObject"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterSimpleObject([NotNull] GodotProjParser.SimpleObjectContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="GodotProjParser.simpleObject"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitSimpleObject([NotNull] GodotProjParser.SimpleObjectContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="GodotProjParser.propertyObjectName"/>.
 	/// </summary>

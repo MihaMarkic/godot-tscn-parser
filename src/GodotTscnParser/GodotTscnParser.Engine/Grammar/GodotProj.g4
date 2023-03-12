@@ -51,6 +51,11 @@ propertyObject:
     propertyObjectTypeName '(' propertyObjectName (COMMA property)* ')'  // assumes object has at least one property
     ;
 
+simpleObject:
+	propertyObjectTypeName '(' propertyValue (COMMA propertyValue)* ')'
+	| propertyObjectTypeName '(' ')'
+	;
+
 propertyObjectName:
     KEY
     | STRING
@@ -70,7 +75,8 @@ numericStructure:
 
 complexValue: 
     object                  // { ... }
-    | propertyObject        // PackedStringArray("4.0")
+	| simpleObject			// PackedStringArray("4.0")
+    | propertyObject        // Object(InputEventKey,"resource_local_to_scene":false...
 	| numericStructure
 	| value
     ;
