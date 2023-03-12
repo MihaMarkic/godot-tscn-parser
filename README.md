@@ -9,4 +9,7 @@ The short term goal is to provide support for source code generators and not for
 
 However, it can eventually provide strong typed configuration as there is motivation and long as somebody with enough knowledge about TSCN files is willing to help.
 
+## How to use
 
+See [godot-tscn-source-generator](https://github.com/MihaMarkic/godot-tscn-source-generator),
+specifically classes `TscnTypesGenerator`, `GodotProjListener` and unit tests for them.
