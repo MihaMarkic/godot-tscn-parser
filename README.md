@@ -1,6 +1,6 @@
 # Godot TSCN parser
 
-![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Righthand.GodotTscnParser)
+[![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Righthand.GodotTscnParser)](https://www.nuget.org/packages/Righthand.GodotTscnParser/)
 
 The project is an [ANTLR](https://www.antlr.org/) based parser for Godot's [TSCN files](https://docs.godotengine.org/en/latest/contributing/development/file_formats/tscn.html).
 Since alpha7, parser for project.godot file is added.
