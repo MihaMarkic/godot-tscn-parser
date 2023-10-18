@@ -223,6 +223,7 @@ namespace GodotTscnParser.Test.Grammar
             [TestCase(GrammarTscnSamples.First)]
             [TestCase(GrammarTscnSamples.Second)]
             [TestCase(GrammarTscnSamples.Third)]
+            [TestCase(GrammarTscnSamples.Fourth)]
             public void TestValid(string input)
             {
                 Assert.DoesNotThrow(() => Run(input, p => p.file()));
@@ -238,7 +239,6 @@ namespace GodotTscnParser.Test.Grammar
 
                 Assert.That(actual.@ref().propertyName().GetText(), Is.EqualTo("\"up\""));
             }
-
         }
     }
 }

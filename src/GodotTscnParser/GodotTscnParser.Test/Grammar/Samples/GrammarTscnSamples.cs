@@ -195,5 +195,29 @@
             [connection signal="StartGame" from="Hud" to="." method="NewGame"]
             
             """;
+
+        public const string Fourth = """
+						[gd_scene load_steps=4 format=3 uid="uid://c3sfqrrm1v350"]
+
+						[ext_resource type="Texture2D" uid="uid://b35bon1qhoeuh" path="res://Assets/PathDisplay.png" id="1_rkbfj"]
+						[ext_resource type="Script" path="res://Scripts/PathTracker.cs" id="2_hwkby"]
+
+						[sub_resource type="SpriteFrames" id="SpriteFrames_kwub8"]
+						animations = [{
+						"frames": [{
+						"duration": 1.0,
+						"texture": ExtResource("1_rkbfj")
+						}],
+						"loop": true,
+						"name": &"default",
+						"speed": 5.0
+						}]
+
+						[node name="Root" type="PathFollow2D"]
+
+						[node name="Sprite" type="AnimatedSprite2D" parent="."]
+						sprite_frames = SubResource("SpriteFrames_kwub8")
+						script = ExtResource("2_hwkby")
+						""";
     }
 }
