@@ -224,6 +224,7 @@ namespace GodotTscnParser.Test.Grammar
             [TestCase(GrammarTscnSamples.Second)]
             [TestCase(GrammarTscnSamples.Third)]
             [TestCase(GrammarTscnSamples.Fourth)]
+            [TestCase(GrammarTscnSamples.AdventureScene)]
             public void TestValid(string input)
             {
                 Assert.DoesNotThrow(() => Run(input, p => p.file()));
@@ -238,6 +239,25 @@ namespace GodotTscnParser.Test.Grammar
                 var actual = Return("&\"up\"", p => p.value());
 
                 Assert.That(actual.@ref().propertyName().GetText(), Is.EqualTo("\"up\""));
+            }
+        }
+
+        [TestFixture]
+        public class Editable : TscnParserTest
+        {
+            [Test]
+            public void GivenSimpleEditableLine_ParsesCorrectly()
+            {
+                const string input = """
+                    [editable path="UiRoot/Menu2/MarginContainer/VBoxContainer/BreakItem"]
+                    """;
+
+                var actual = Return(input, p => p.editable());
+
+                var pair = actual.pair().Single();
+
+                Assert.That(pair.pairName().GetText(), Is.EqualTo("path"));
+                Assert.That(pair.value().GetText(), Is.EqualTo("\"UiRoot/Menu2/MarginContainer/VBoxContainer/BreakItem\""));
             }
         }
     }

@@ -1,6 +1,6 @@
 grammar Tscn;
 
-file: fileDescriptor extResource* subResource* node* connection*; // assumes order of nodes
+file: fileDescriptor extResource* subResource* node* connection* editable*; // assumes order of nodes
 
 fileDescriptor: 
 	START_BRACKET 'gd_scene' pair+ END_BRACKET
@@ -18,6 +18,10 @@ node:
 
 connection: 
 	START_BRACKET 'connection' pair+ END_BRACKET
+	;
+
+editable:
+	START_BRACKET 'editable' pair+ END_BRACKET
 	;
 
 object: 
