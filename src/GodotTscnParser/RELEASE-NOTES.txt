@@ -1,4 +1,6 @@
-﻿v.1.0.0-alpha8
+﻿v.1.0.0-beta.1
+	- adds editable node support
+v.1.0.0-alpha8
 	- fixes parsing issues
 v.1.0.0-alpha7
 	- adds .godot file parser (project.godot)
