@@ -133,6 +133,11 @@ namespace GodotTscnParser.Test.Grammar
                     "vertex_count": 466,
                     "vertex_data": PackedByteArray("FAavO9/33Ls20Mo7y+qE")
                     }]
+                    _data = {
+                    &"Animation_FadeIn": SubResource("Animation_xbkcy"),
+                    &"Animation_FadeOut": SubResource("Animation_e5sew"),
+                    &"RESET": SubResource("Animation_51kib")
+                    }
                     blend_shape_mode = 0
                     """;
 

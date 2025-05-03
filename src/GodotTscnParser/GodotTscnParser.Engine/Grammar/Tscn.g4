@@ -30,7 +30,7 @@ object:
 	;
 
 property: 
-	propertyName ':' complexValue
+	(propertyName | ref) ':' complexValue
 	;
 
 propertyName:
@@ -89,8 +89,7 @@ pairName:
 	;
 
 complexPairName:
-	KEY ('/' KEY)+	// i.e. surfaces/0 or bones/0/parent
-	| KEY
+	KEY
 	;
 
 complexPair: 
@@ -110,6 +109,7 @@ value:
 	| 'false'
 	| 'null'
 	;
+
 KEY:
 	[a-zA-Z_][a-zA-Z_0-9/]*
 	;

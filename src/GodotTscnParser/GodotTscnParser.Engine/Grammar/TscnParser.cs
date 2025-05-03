@@ -39,8 +39,8 @@ public partial class TscnParser : Parser {
 	public const int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
-		T__17=18, T__18=19, T__19=20, KEY=21, NUMBER=22, COMMA=23, START_BRACKET=24, 
-		END_BRACKET=25, STRING=26, WS=27;
+		T__17=18, T__18=19, KEY=20, NUMBER=21, COMMA=22, START_BRACKET=23, END_BRACKET=24, 
+		STRING=25, WS=26;
 	public const int
 		RULE_file = 0, RULE_fileDescriptor = 1, RULE_extResource = 2, RULE_subResource = 3, 
 		RULE_node = 4, RULE_connection = 5, RULE_editable = 6, RULE_object = 7, 
@@ -60,13 +60,13 @@ public partial class TscnParser : Parser {
 	private static readonly string[] _LiteralNames = {
 		null, "'gd_scene'", "'ext_resource'", "'sub_resource'", "'node'", "'connection'", 
 		"'editable'", "'{'", "'}'", "':'", "'ExtResource'", "'('", "')'", "'SubResource'", 
-		"'NodePath'", "'&'", "'='", "'/'", "'true'", "'false'", "'null'", null, 
-		null, "','", "'['", "']'"
+		"'NodePath'", "'&'", "'='", "'true'", "'false'", "'null'", null, null, 
+		"','", "'['", "']'"
 	};
 	private static readonly string[] _SymbolicNames = {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, "KEY", "NUMBER", 
-		"COMMA", "START_BRACKET", "END_BRACKET", "STRING", "WS"
+		null, null, null, null, null, null, null, null, "KEY", "NUMBER", "COMMA", 
+		"START_BRACKET", "END_BRACKET", "STRING", "WS"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -776,11 +776,14 @@ public partial class TscnParser : Parser {
 	}
 
 	public partial class PropertyContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ComplexValueContext complexValue() {
+			return GetRuleContext<ComplexValueContext>(0);
+		}
 		[System.Diagnostics.DebuggerNonUserCode] public PropertyNameContext propertyName() {
 			return GetRuleContext<PropertyNameContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ComplexValueContext complexValue() {
-			return GetRuleContext<ComplexValueContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public RefContext @ref() {
+			return GetRuleContext<RefContext>(0);
 		}
 		public PropertyContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -806,11 +809,27 @@ public partial class TscnParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 162;
-			propertyName();
-			State = 163;
-			Match(T__8);
 			State = 164;
+			ErrorHandler.Sync(this);
+			switch (TokenStream.LA(1)) {
+			case STRING:
+				{
+				State = 162;
+				propertyName();
+				}
+				break;
+			case T__14:
+				{
+				State = 163;
+				@ref();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			State = 166;
+			Match(T__8);
+			State = 167;
 			complexValue();
 			}
 		}
@@ -851,7 +870,7 @@ public partial class TscnParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 166;
+			State = 169;
 			Match(STRING);
 			}
 		}
@@ -894,13 +913,13 @@ public partial class TscnParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 168;
-			Match(T__9);
-			State = 169;
-			Match(T__10);
-			State = 170;
-			resourceRef();
 			State = 171;
+			Match(T__9);
+			State = 172;
+			Match(T__10);
+			State = 173;
+			resourceRef();
+			State = 174;
 			Match(T__11);
 			}
 		}
@@ -943,13 +962,13 @@ public partial class TscnParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 173;
-			Match(T__12);
-			State = 174;
-			Match(T__10);
-			State = 175;
-			resourceRef();
 			State = 176;
+			Match(T__12);
+			State = 177;
+			Match(T__10);
+			State = 178;
+			resourceRef();
+			State = 179;
 			Match(T__11);
 			}
 		}
@@ -992,13 +1011,13 @@ public partial class TscnParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 178;
-			Match(T__13);
-			State = 179;
-			Match(T__10);
-			State = 180;
-			resourceRef();
 			State = 181;
+			Match(T__13);
+			State = 182;
+			Match(T__10);
+			State = 183;
+			resourceRef();
+			State = 184;
 			Match(T__11);
 			}
 		}
@@ -1041,9 +1060,9 @@ public partial class TscnParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 183;
+			State = 186;
 			Match(T__14);
-			State = 184;
+			State = 187;
 			propertyName();
 			}
 		}
@@ -1086,7 +1105,7 @@ public partial class TscnParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 186;
+			State = 189;
 			_la = TokenStream.LA(1);
 			if ( !(_la==NUMBER || _la==STRING) ) {
 			ErrorHandler.RecoverInline(this);
@@ -1143,29 +1162,29 @@ public partial class TscnParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 188;
+			State = 191;
 			Match(KEY);
-			State = 189;
+			State = 192;
 			Match(T__10);
-			State = 190;
-			Match(NUMBER);
 			State = 193;
+			Match(NUMBER);
+			State = 196;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			do {
 				{
 				{
-				State = 191;
+				State = 194;
 				Match(COMMA);
-				State = 192;
+				State = 195;
 				Match(NUMBER);
 				}
 				}
-				State = 195;
+				State = 198;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			} while ( _la==COMMA );
-			State = 197;
+			State = 200;
 			Match(T__11);
 			}
 		}
@@ -1230,69 +1249,69 @@ public partial class TscnParser : Parser {
 		ComplexValueContext _localctx = new ComplexValueContext(Context, State);
 		EnterRule(_localctx, 32, RULE_complexValue);
 		try {
-			State = 208;
+			State = 211;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,16,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,17,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 199;
+				State = 202;
 				objectArray();
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 200;
+				State = 203;
 				@object();
 				}
 				break;
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 201;
+				State = 204;
 				complexValueArray();
 				}
 				break;
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 202;
+				State = 205;
 				extResourceRef();
 				}
 				break;
 			case 5:
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 203;
+				State = 206;
 				subResourceRef();
 				}
 				break;
 			case 6:
 				EnterOuterAlt(_localctx, 6);
 				{
-				State = 204;
+				State = 207;
 				numericStructure();
 				}
 				break;
 			case 7:
 				EnterOuterAlt(_localctx, 7);
 				{
-				State = 205;
+				State = 208;
 				nodePath();
 				}
 				break;
 			case 8:
 				EnterOuterAlt(_localctx, 8);
 				{
-				State = 206;
+				State = 209;
 				predicate();
 				}
 				break;
 			case 9:
 				EnterOuterAlt(_localctx, 9);
 				{
-				State = 207;
+				State = 210;
 				value();
 				}
 				break;
@@ -1345,42 +1364,42 @@ public partial class TscnParser : Parser {
 		EnterRule(_localctx, 34, RULE_objectArray);
 		int _la;
 		try {
-			State = 223;
+			State = 226;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,18,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,19,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 210;
+				State = 213;
 				Match(START_BRACKET);
-				State = 211;
+				State = 214;
 				@object();
-				State = 216;
+				State = 219;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 212;
+					State = 215;
 					Match(COMMA);
-					State = 213;
+					State = 216;
 					@object();
 					}
 					}
-					State = 218;
+					State = 221;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
-				State = 219;
+				State = 222;
 				Match(END_BRACKET);
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 221;
+				State = 224;
 				Match(START_BRACKET);
-				State = 222;
+				State = 225;
 				Match(END_BRACKET);
 				}
 				break;
@@ -1433,42 +1452,42 @@ public partial class TscnParser : Parser {
 		EnterRule(_localctx, 36, RULE_complexValueArray);
 		int _la;
 		try {
-			State = 238;
+			State = 241;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,20,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,21,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 225;
+				State = 228;
 				Match(START_BRACKET);
-				State = 226;
+				State = 229;
 				complexValue();
-				State = 231;
+				State = 234;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 227;
+					State = 230;
 					Match(COMMA);
-					State = 228;
+					State = 231;
 					complexValue();
 					}
 					}
-					State = 233;
+					State = 236;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
-				State = 234;
+				State = 237;
 				Match(END_BRACKET);
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 236;
+				State = 239;
 				Match(START_BRACKET);
-				State = 237;
+				State = 240;
 				Match(END_BRACKET);
 				}
 				break;
@@ -1516,11 +1535,11 @@ public partial class TscnParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 240;
+			State = 243;
 			pairName();
-			State = 241;
+			State = 244;
 			Match(T__15);
-			State = 242;
+			State = 245;
 			value();
 			}
 		}
@@ -1561,7 +1580,7 @@ public partial class TscnParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 244;
+			State = 247;
 			Match(KEY);
 			}
 		}
@@ -1577,10 +1596,7 @@ public partial class TscnParser : Parser {
 	}
 
 	public partial class ComplexPairNameContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] KEY() { return GetTokens(TscnParser.KEY); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode KEY(int i) {
-			return GetToken(TscnParser.KEY, i);
-		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode KEY() { return GetToken(TscnParser.KEY, 0); }
 		public ComplexPairNameContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1602,41 +1618,11 @@ public partial class TscnParser : Parser {
 	public ComplexPairNameContext complexPairName() {
 		ComplexPairNameContext _localctx = new ComplexPairNameContext(Context, State);
 		EnterRule(_localctx, 42, RULE_complexPairName);
-		int _la;
 		try {
-			State = 254;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,22,Context) ) {
-			case 1:
-				EnterOuterAlt(_localctx, 1);
-				{
-				State = 246;
-				Match(KEY);
-				State = 249;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				do {
-					{
-					{
-					State = 247;
-					Match(T__16);
-					State = 248;
-					Match(KEY);
-					}
-					}
-					State = 251;
-					ErrorHandler.Sync(this);
-					_la = TokenStream.LA(1);
-				} while ( _la==T__16 );
-				}
-				break;
-			case 2:
-				EnterOuterAlt(_localctx, 2);
-				{
-				State = 253;
-				Match(KEY);
-				}
-				break;
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 249;
+			Match(KEY);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1681,11 +1667,11 @@ public partial class TscnParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 256;
+			State = 251;
 			complexPairName();
-			State = 257;
+			State = 252;
 			Match(T__15);
-			State = 258;
+			State = 253;
 			complexValue();
 			}
 		}
@@ -1735,46 +1721,46 @@ public partial class TscnParser : Parser {
 		EnterRule(_localctx, 46, RULE_predicate);
 		int _la;
 		try {
-			State = 275;
+			State = 270;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,24,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,23,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 260;
+				State = 255;
 				Match(KEY);
-				State = 261;
+				State = 256;
 				Match(T__10);
-				State = 262;
+				State = 257;
 				complexValue();
-				State = 267;
+				State = 262;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 263;
+					State = 258;
 					Match(COMMA);
-					State = 264;
+					State = 259;
 					complexValue();
 					}
 					}
-					State = 269;
+					State = 264;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
-				State = 270;
+				State = 265;
 				Match(T__11);
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 272;
+				State = 267;
 				Match(KEY);
-				State = 273;
+				State = 268;
 				Match(T__10);
-				State = 274;
+				State = 269;
 				Match(T__11);
 				}
 				break;
@@ -1819,49 +1805,49 @@ public partial class TscnParser : Parser {
 		ValueContext _localctx = new ValueContext(Context, State);
 		EnterRule(_localctx, 48, RULE_value);
 		try {
-			State = 283;
+			State = 278;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case NUMBER:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 277;
+				State = 272;
 				Match(NUMBER);
 				}
 				break;
 			case STRING:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 278;
+				State = 273;
 				Match(STRING);
 				}
 				break;
 			case T__14:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 279;
+				State = 274;
 				@ref();
 				}
 				break;
-			case T__17:
+			case T__16:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 280;
+				State = 275;
+				Match(T__16);
+				}
+				break;
+			case T__17:
+				EnterOuterAlt(_localctx, 5);
+				{
+				State = 276;
 				Match(T__17);
 				}
 				break;
 			case T__18:
-				EnterOuterAlt(_localctx, 5);
-				{
-				State = 281;
-				Match(T__18);
-				}
-				break;
-			case T__19:
 				EnterOuterAlt(_localctx, 6);
 				{
-				State = 282;
-				Match(T__19);
+				State = 277;
+				Match(T__18);
 				}
 				break;
 			default:
@@ -1905,7 +1891,7 @@ public partial class TscnParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 285;
+			State = 280;
 			Match(NUMBER);
 			}
 		}
@@ -1921,7 +1907,7 @@ public partial class TscnParser : Parser {
 	}
 
 	private static int[] _serializedATN = {
-		4,1,27,288,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
+		4,1,26,283,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
 		7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,14,
 		2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,7,20,2,21,7,21,
 		2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,1,0,1,0,5,0,55,8,0,10,0,12,0,58,
@@ -1932,86 +1918,85 @@ public partial class TscnParser : Parser {
 		12,3,114,9,3,1,4,1,4,1,4,4,4,119,8,4,11,4,12,4,120,1,4,1,4,5,4,125,8,4,
 		10,4,12,4,128,9,4,1,5,1,5,1,5,4,5,133,8,5,11,5,12,5,134,1,5,1,5,1,6,1,
 		6,1,6,4,6,142,8,6,11,6,12,6,143,1,6,1,6,1,7,1,7,1,7,1,7,5,7,152,8,7,10,
-		7,12,7,155,9,7,1,7,1,7,1,7,1,7,3,7,161,8,7,1,8,1,8,1,8,1,8,1,9,1,9,1,10,
-		1,10,1,10,1,10,1,10,1,11,1,11,1,11,1,11,1,11,1,12,1,12,1,12,1,12,1,12,
-		1,13,1,13,1,13,1,14,1,14,1,15,1,15,1,15,1,15,1,15,4,15,194,8,15,11,15,
-		12,15,195,1,15,1,15,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,3,16,
-		209,8,16,1,17,1,17,1,17,1,17,5,17,215,8,17,10,17,12,17,218,9,17,1,17,1,
-		17,1,17,1,17,3,17,224,8,17,1,18,1,18,1,18,1,18,5,18,230,8,18,10,18,12,
-		18,233,9,18,1,18,1,18,1,18,1,18,3,18,239,8,18,1,19,1,19,1,19,1,19,1,20,
-		1,20,1,21,1,21,1,21,4,21,250,8,21,11,21,12,21,251,1,21,3,21,255,8,21,1,
-		22,1,22,1,22,1,22,1,23,1,23,1,23,1,23,1,23,5,23,266,8,23,10,23,12,23,269,
-		9,23,1,23,1,23,1,23,1,23,1,23,3,23,276,8,23,1,24,1,24,1,24,1,24,1,24,1,
-		24,3,24,284,8,24,1,25,1,25,1,25,0,0,26,0,2,4,6,8,10,12,14,16,18,20,22,
-		24,26,28,30,32,34,36,38,40,42,44,46,48,50,0,1,2,0,22,22,26,26,298,0,52,
-		1,0,0,0,2,83,1,0,0,0,4,92,1,0,0,0,6,101,1,0,0,0,8,115,1,0,0,0,10,129,1,
-		0,0,0,12,138,1,0,0,0,14,160,1,0,0,0,16,162,1,0,0,0,18,166,1,0,0,0,20,168,
-		1,0,0,0,22,173,1,0,0,0,24,178,1,0,0,0,26,183,1,0,0,0,28,186,1,0,0,0,30,
-		188,1,0,0,0,32,208,1,0,0,0,34,223,1,0,0,0,36,238,1,0,0,0,38,240,1,0,0,
-		0,40,244,1,0,0,0,42,254,1,0,0,0,44,256,1,0,0,0,46,275,1,0,0,0,48,283,1,
-		0,0,0,50,285,1,0,0,0,52,56,3,2,1,0,53,55,3,4,2,0,54,53,1,0,0,0,55,58,1,
-		0,0,0,56,54,1,0,0,0,56,57,1,0,0,0,57,62,1,0,0,0,58,56,1,0,0,0,59,61,3,
-		6,3,0,60,59,1,0,0,0,61,64,1,0,0,0,62,60,1,0,0,0,62,63,1,0,0,0,63,68,1,
-		0,0,0,64,62,1,0,0,0,65,67,3,8,4,0,66,65,1,0,0,0,67,70,1,0,0,0,68,66,1,
-		0,0,0,68,69,1,0,0,0,69,74,1,0,0,0,70,68,1,0,0,0,71,73,3,10,5,0,72,71,1,
-		0,0,0,73,76,1,0,0,0,74,72,1,0,0,0,74,75,1,0,0,0,75,80,1,0,0,0,76,74,1,
-		0,0,0,77,79,3,12,6,0,78,77,1,0,0,0,79,82,1,0,0,0,80,78,1,0,0,0,80,81,1,
-		0,0,0,81,1,1,0,0,0,82,80,1,0,0,0,83,84,5,24,0,0,84,86,5,1,0,0,85,87,3,
-		38,19,0,86,85,1,0,0,0,87,88,1,0,0,0,88,86,1,0,0,0,88,89,1,0,0,0,89,90,
-		1,0,0,0,90,91,5,25,0,0,91,3,1,0,0,0,92,93,5,24,0,0,93,95,5,2,0,0,94,96,
-		3,38,19,0,95,94,1,0,0,0,96,97,1,0,0,0,97,95,1,0,0,0,97,98,1,0,0,0,98,99,
-		1,0,0,0,99,100,5,25,0,0,100,5,1,0,0,0,101,102,5,24,0,0,102,104,5,3,0,0,
-		103,105,3,38,19,0,104,103,1,0,0,0,105,106,1,0,0,0,106,104,1,0,0,0,106,
-		107,1,0,0,0,107,108,1,0,0,0,108,112,5,25,0,0,109,111,3,44,22,0,110,109,
-		1,0,0,0,111,114,1,0,0,0,112,110,1,0,0,0,112,113,1,0,0,0,113,7,1,0,0,0,
-		114,112,1,0,0,0,115,116,5,24,0,0,116,118,5,4,0,0,117,119,3,44,22,0,118,
-		117,1,0,0,0,119,120,1,0,0,0,120,118,1,0,0,0,120,121,1,0,0,0,121,122,1,
-		0,0,0,122,126,5,25,0,0,123,125,3,44,22,0,124,123,1,0,0,0,125,128,1,0,0,
-		0,126,124,1,0,0,0,126,127,1,0,0,0,127,9,1,0,0,0,128,126,1,0,0,0,129,130,
-		5,24,0,0,130,132,5,5,0,0,131,133,3,38,19,0,132,131,1,0,0,0,133,134,1,0,
-		0,0,134,132,1,0,0,0,134,135,1,0,0,0,135,136,1,0,0,0,136,137,5,25,0,0,137,
-		11,1,0,0,0,138,139,5,24,0,0,139,141,5,6,0,0,140,142,3,38,19,0,141,140,
-		1,0,0,0,142,143,1,0,0,0,143,141,1,0,0,0,143,144,1,0,0,0,144,145,1,0,0,
-		0,145,146,5,25,0,0,146,13,1,0,0,0,147,148,5,7,0,0,148,153,3,16,8,0,149,
-		150,5,23,0,0,150,152,3,16,8,0,151,149,1,0,0,0,152,155,1,0,0,0,153,151,
-		1,0,0,0,153,154,1,0,0,0,154,156,1,0,0,0,155,153,1,0,0,0,156,157,5,8,0,
-		0,157,161,1,0,0,0,158,159,5,7,0,0,159,161,5,8,0,0,160,147,1,0,0,0,160,
-		158,1,0,0,0,161,15,1,0,0,0,162,163,3,18,9,0,163,164,5,9,0,0,164,165,3,
-		32,16,0,165,17,1,0,0,0,166,167,5,26,0,0,167,19,1,0,0,0,168,169,5,10,0,
-		0,169,170,5,11,0,0,170,171,3,28,14,0,171,172,5,12,0,0,172,21,1,0,0,0,173,
-		174,5,13,0,0,174,175,5,11,0,0,175,176,3,28,14,0,176,177,5,12,0,0,177,23,
-		1,0,0,0,178,179,5,14,0,0,179,180,5,11,0,0,180,181,3,28,14,0,181,182,5,
-		12,0,0,182,25,1,0,0,0,183,184,5,15,0,0,184,185,3,18,9,0,185,27,1,0,0,0,
-		186,187,7,0,0,0,187,29,1,0,0,0,188,189,5,21,0,0,189,190,5,11,0,0,190,193,
-		5,22,0,0,191,192,5,23,0,0,192,194,5,22,0,0,193,191,1,0,0,0,194,195,1,0,
-		0,0,195,193,1,0,0,0,195,196,1,0,0,0,196,197,1,0,0,0,197,198,5,12,0,0,198,
-		31,1,0,0,0,199,209,3,34,17,0,200,209,3,14,7,0,201,209,3,36,18,0,202,209,
-		3,20,10,0,203,209,3,22,11,0,204,209,3,30,15,0,205,209,3,24,12,0,206,209,
-		3,46,23,0,207,209,3,48,24,0,208,199,1,0,0,0,208,200,1,0,0,0,208,201,1,
-		0,0,0,208,202,1,0,0,0,208,203,1,0,0,0,208,204,1,0,0,0,208,205,1,0,0,0,
-		208,206,1,0,0,0,208,207,1,0,0,0,209,33,1,0,0,0,210,211,5,24,0,0,211,216,
-		3,14,7,0,212,213,5,23,0,0,213,215,3,14,7,0,214,212,1,0,0,0,215,218,1,0,
-		0,0,216,214,1,0,0,0,216,217,1,0,0,0,217,219,1,0,0,0,218,216,1,0,0,0,219,
-		220,5,25,0,0,220,224,1,0,0,0,221,222,5,24,0,0,222,224,5,25,0,0,223,210,
-		1,0,0,0,223,221,1,0,0,0,224,35,1,0,0,0,225,226,5,24,0,0,226,231,3,32,16,
-		0,227,228,5,23,0,0,228,230,3,32,16,0,229,227,1,0,0,0,230,233,1,0,0,0,231,
-		229,1,0,0,0,231,232,1,0,0,0,232,234,1,0,0,0,233,231,1,0,0,0,234,235,5,
-		25,0,0,235,239,1,0,0,0,236,237,5,24,0,0,237,239,5,25,0,0,238,225,1,0,0,
-		0,238,236,1,0,0,0,239,37,1,0,0,0,240,241,3,40,20,0,241,242,5,16,0,0,242,
-		243,3,48,24,0,243,39,1,0,0,0,244,245,5,21,0,0,245,41,1,0,0,0,246,249,5,
-		21,0,0,247,248,5,17,0,0,248,250,5,21,0,0,249,247,1,0,0,0,250,251,1,0,0,
-		0,251,249,1,0,0,0,251,252,1,0,0,0,252,255,1,0,0,0,253,255,5,21,0,0,254,
-		246,1,0,0,0,254,253,1,0,0,0,255,43,1,0,0,0,256,257,3,42,21,0,257,258,5,
-		16,0,0,258,259,3,32,16,0,259,45,1,0,0,0,260,261,5,21,0,0,261,262,5,11,
-		0,0,262,267,3,32,16,0,263,264,5,23,0,0,264,266,3,32,16,0,265,263,1,0,0,
-		0,266,269,1,0,0,0,267,265,1,0,0,0,267,268,1,0,0,0,268,270,1,0,0,0,269,
-		267,1,0,0,0,270,271,5,12,0,0,271,276,1,0,0,0,272,273,5,21,0,0,273,274,
-		5,11,0,0,274,276,5,12,0,0,275,260,1,0,0,0,275,272,1,0,0,0,276,47,1,0,0,
-		0,277,284,5,22,0,0,278,284,5,26,0,0,279,284,3,26,13,0,280,284,5,18,0,0,
-		281,284,5,19,0,0,282,284,5,20,0,0,283,277,1,0,0,0,283,278,1,0,0,0,283,
-		279,1,0,0,0,283,280,1,0,0,0,283,281,1,0,0,0,283,282,1,0,0,0,284,49,1,0,
-		0,0,285,286,5,22,0,0,286,51,1,0,0,0,26,56,62,68,74,80,88,97,106,112,120,
-		126,134,143,153,160,195,208,216,223,231,238,251,254,267,275,283
+		7,12,7,155,9,7,1,7,1,7,1,7,1,7,3,7,161,8,7,1,8,1,8,3,8,165,8,8,1,8,1,8,
+		1,8,1,9,1,9,1,10,1,10,1,10,1,10,1,10,1,11,1,11,1,11,1,11,1,11,1,12,1,12,
+		1,12,1,12,1,12,1,13,1,13,1,13,1,14,1,14,1,15,1,15,1,15,1,15,1,15,4,15,
+		197,8,15,11,15,12,15,198,1,15,1,15,1,16,1,16,1,16,1,16,1,16,1,16,1,16,
+		1,16,1,16,3,16,212,8,16,1,17,1,17,1,17,1,17,5,17,218,8,17,10,17,12,17,
+		221,9,17,1,17,1,17,1,17,1,17,3,17,227,8,17,1,18,1,18,1,18,1,18,5,18,233,
+		8,18,10,18,12,18,236,9,18,1,18,1,18,1,18,1,18,3,18,242,8,18,1,19,1,19,
+		1,19,1,19,1,20,1,20,1,21,1,21,1,22,1,22,1,22,1,22,1,23,1,23,1,23,1,23,
+		1,23,5,23,261,8,23,10,23,12,23,264,9,23,1,23,1,23,1,23,1,23,1,23,3,23,
+		271,8,23,1,24,1,24,1,24,1,24,1,24,1,24,3,24,279,8,24,1,25,1,25,1,25,0,
+		0,26,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,
+		48,50,0,1,2,0,21,21,25,25,292,0,52,1,0,0,0,2,83,1,0,0,0,4,92,1,0,0,0,6,
+		101,1,0,0,0,8,115,1,0,0,0,10,129,1,0,0,0,12,138,1,0,0,0,14,160,1,0,0,0,
+		16,164,1,0,0,0,18,169,1,0,0,0,20,171,1,0,0,0,22,176,1,0,0,0,24,181,1,0,
+		0,0,26,186,1,0,0,0,28,189,1,0,0,0,30,191,1,0,0,0,32,211,1,0,0,0,34,226,
+		1,0,0,0,36,241,1,0,0,0,38,243,1,0,0,0,40,247,1,0,0,0,42,249,1,0,0,0,44,
+		251,1,0,0,0,46,270,1,0,0,0,48,278,1,0,0,0,50,280,1,0,0,0,52,56,3,2,1,0,
+		53,55,3,4,2,0,54,53,1,0,0,0,55,58,1,0,0,0,56,54,1,0,0,0,56,57,1,0,0,0,
+		57,62,1,0,0,0,58,56,1,0,0,0,59,61,3,6,3,0,60,59,1,0,0,0,61,64,1,0,0,0,
+		62,60,1,0,0,0,62,63,1,0,0,0,63,68,1,0,0,0,64,62,1,0,0,0,65,67,3,8,4,0,
+		66,65,1,0,0,0,67,70,1,0,0,0,68,66,1,0,0,0,68,69,1,0,0,0,69,74,1,0,0,0,
+		70,68,1,0,0,0,71,73,3,10,5,0,72,71,1,0,0,0,73,76,1,0,0,0,74,72,1,0,0,0,
+		74,75,1,0,0,0,75,80,1,0,0,0,76,74,1,0,0,0,77,79,3,12,6,0,78,77,1,0,0,0,
+		79,82,1,0,0,0,80,78,1,0,0,0,80,81,1,0,0,0,81,1,1,0,0,0,82,80,1,0,0,0,83,
+		84,5,23,0,0,84,86,5,1,0,0,85,87,3,38,19,0,86,85,1,0,0,0,87,88,1,0,0,0,
+		88,86,1,0,0,0,88,89,1,0,0,0,89,90,1,0,0,0,90,91,5,24,0,0,91,3,1,0,0,0,
+		92,93,5,23,0,0,93,95,5,2,0,0,94,96,3,38,19,0,95,94,1,0,0,0,96,97,1,0,0,
+		0,97,95,1,0,0,0,97,98,1,0,0,0,98,99,1,0,0,0,99,100,5,24,0,0,100,5,1,0,
+		0,0,101,102,5,23,0,0,102,104,5,3,0,0,103,105,3,38,19,0,104,103,1,0,0,0,
+		105,106,1,0,0,0,106,104,1,0,0,0,106,107,1,0,0,0,107,108,1,0,0,0,108,112,
+		5,24,0,0,109,111,3,44,22,0,110,109,1,0,0,0,111,114,1,0,0,0,112,110,1,0,
+		0,0,112,113,1,0,0,0,113,7,1,0,0,0,114,112,1,0,0,0,115,116,5,23,0,0,116,
+		118,5,4,0,0,117,119,3,44,22,0,118,117,1,0,0,0,119,120,1,0,0,0,120,118,
+		1,0,0,0,120,121,1,0,0,0,121,122,1,0,0,0,122,126,5,24,0,0,123,125,3,44,
+		22,0,124,123,1,0,0,0,125,128,1,0,0,0,126,124,1,0,0,0,126,127,1,0,0,0,127,
+		9,1,0,0,0,128,126,1,0,0,0,129,130,5,23,0,0,130,132,5,5,0,0,131,133,3,38,
+		19,0,132,131,1,0,0,0,133,134,1,0,0,0,134,132,1,0,0,0,134,135,1,0,0,0,135,
+		136,1,0,0,0,136,137,5,24,0,0,137,11,1,0,0,0,138,139,5,23,0,0,139,141,5,
+		6,0,0,140,142,3,38,19,0,141,140,1,0,0,0,142,143,1,0,0,0,143,141,1,0,0,
+		0,143,144,1,0,0,0,144,145,1,0,0,0,145,146,5,24,0,0,146,13,1,0,0,0,147,
+		148,5,7,0,0,148,153,3,16,8,0,149,150,5,22,0,0,150,152,3,16,8,0,151,149,
+		1,0,0,0,152,155,1,0,0,0,153,151,1,0,0,0,153,154,1,0,0,0,154,156,1,0,0,
+		0,155,153,1,0,0,0,156,157,5,8,0,0,157,161,1,0,0,0,158,159,5,7,0,0,159,
+		161,5,8,0,0,160,147,1,0,0,0,160,158,1,0,0,0,161,15,1,0,0,0,162,165,3,18,
+		9,0,163,165,3,26,13,0,164,162,1,0,0,0,164,163,1,0,0,0,165,166,1,0,0,0,
+		166,167,5,9,0,0,167,168,3,32,16,0,168,17,1,0,0,0,169,170,5,25,0,0,170,
+		19,1,0,0,0,171,172,5,10,0,0,172,173,5,11,0,0,173,174,3,28,14,0,174,175,
+		5,12,0,0,175,21,1,0,0,0,176,177,5,13,0,0,177,178,5,11,0,0,178,179,3,28,
+		14,0,179,180,5,12,0,0,180,23,1,0,0,0,181,182,5,14,0,0,182,183,5,11,0,0,
+		183,184,3,28,14,0,184,185,5,12,0,0,185,25,1,0,0,0,186,187,5,15,0,0,187,
+		188,3,18,9,0,188,27,1,0,0,0,189,190,7,0,0,0,190,29,1,0,0,0,191,192,5,20,
+		0,0,192,193,5,11,0,0,193,196,5,21,0,0,194,195,5,22,0,0,195,197,5,21,0,
+		0,196,194,1,0,0,0,197,198,1,0,0,0,198,196,1,0,0,0,198,199,1,0,0,0,199,
+		200,1,0,0,0,200,201,5,12,0,0,201,31,1,0,0,0,202,212,3,34,17,0,203,212,
+		3,14,7,0,204,212,3,36,18,0,205,212,3,20,10,0,206,212,3,22,11,0,207,212,
+		3,30,15,0,208,212,3,24,12,0,209,212,3,46,23,0,210,212,3,48,24,0,211,202,
+		1,0,0,0,211,203,1,0,0,0,211,204,1,0,0,0,211,205,1,0,0,0,211,206,1,0,0,
+		0,211,207,1,0,0,0,211,208,1,0,0,0,211,209,1,0,0,0,211,210,1,0,0,0,212,
+		33,1,0,0,0,213,214,5,23,0,0,214,219,3,14,7,0,215,216,5,22,0,0,216,218,
+		3,14,7,0,217,215,1,0,0,0,218,221,1,0,0,0,219,217,1,0,0,0,219,220,1,0,0,
+		0,220,222,1,0,0,0,221,219,1,0,0,0,222,223,5,24,0,0,223,227,1,0,0,0,224,
+		225,5,23,0,0,225,227,5,24,0,0,226,213,1,0,0,0,226,224,1,0,0,0,227,35,1,
+		0,0,0,228,229,5,23,0,0,229,234,3,32,16,0,230,231,5,22,0,0,231,233,3,32,
+		16,0,232,230,1,0,0,0,233,236,1,0,0,0,234,232,1,0,0,0,234,235,1,0,0,0,235,
+		237,1,0,0,0,236,234,1,0,0,0,237,238,5,24,0,0,238,242,1,0,0,0,239,240,5,
+		23,0,0,240,242,5,24,0,0,241,228,1,0,0,0,241,239,1,0,0,0,242,37,1,0,0,0,
+		243,244,3,40,20,0,244,245,5,16,0,0,245,246,3,48,24,0,246,39,1,0,0,0,247,
+		248,5,20,0,0,248,41,1,0,0,0,249,250,5,20,0,0,250,43,1,0,0,0,251,252,3,
+		42,21,0,252,253,5,16,0,0,253,254,3,32,16,0,254,45,1,0,0,0,255,256,5,20,
+		0,0,256,257,5,11,0,0,257,262,3,32,16,0,258,259,5,22,0,0,259,261,3,32,16,
+		0,260,258,1,0,0,0,261,264,1,0,0,0,262,260,1,0,0,0,262,263,1,0,0,0,263,
+		265,1,0,0,0,264,262,1,0,0,0,265,266,5,12,0,0,266,271,1,0,0,0,267,268,5,
+		20,0,0,268,269,5,11,0,0,269,271,5,12,0,0,270,255,1,0,0,0,270,267,1,0,0,
+		0,271,47,1,0,0,0,272,279,5,21,0,0,273,279,5,25,0,0,274,279,3,26,13,0,275,
+		279,5,17,0,0,276,279,5,18,0,0,277,279,5,19,0,0,278,272,1,0,0,0,278,273,
+		1,0,0,0,278,274,1,0,0,0,278,275,1,0,0,0,278,276,1,0,0,0,278,277,1,0,0,
+		0,279,49,1,0,0,0,280,281,5,21,0,0,281,51,1,0,0,0,25,56,62,68,74,80,88,
+		97,106,112,120,126,134,143,153,160,164,198,211,219,226,234,241,262,270,
+		278
 	};
 
 	public static readonly ATN _ATN =
