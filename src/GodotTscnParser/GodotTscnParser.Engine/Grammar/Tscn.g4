@@ -61,8 +61,7 @@ numericStructure:
 
 complexValue: 
 	objectArray
-	| object
-	| complexValueArray
+	| object	
 	| extResourceRef
 	| subResourceRef
 	| numericStructure
@@ -70,6 +69,7 @@ complexValue:
 	| predicate
 	| value
 ;
+
 objectArray: 
 	'[' object (COMMA object)* ']'
 	| '[' ']'
@@ -105,6 +105,7 @@ value:
 	NUMBER 
 	| STRING 
 	| ref
+	| complexValueArray
 	| 'true' 
 	| 'false'
 	| 'null'

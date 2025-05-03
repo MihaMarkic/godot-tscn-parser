@@ -162,7 +162,21 @@ namespace GodotTscnParser.Test.Grammar
 
                 Assert.That(actual.complexPair().Length, Is.EqualTo(7));
             }
+            
+            [Test]
+            public void GivenSampleWithConnection_TestsValidity()
+            {
+                const string input =
+                    """
+                    [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Settings" to="SettingsPannelContainer" method="set_mouse_filter" binds= [0]]
+                    """;
+
+                var actual = Return(input, p => p.connection());
+
+                Assert.That(actual.pair().Length, Is.EqualTo(5));
+            }
         }
+        
         [TestFixture]
         public class ExtResourceRef : TscnParserTest
         {
