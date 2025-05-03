@@ -66,6 +66,7 @@ complexValue:
 	| extResourceRef
 	| subResourceRef
 	| numericStructure
+	| predicate
 	| value
 ;
 objectArray: 
@@ -93,6 +94,11 @@ complexPairName:
 
 complexPair: 
 	complexPairName '=' complexValue
+	;
+
+predicate:
+	KEY '(' complexValue (COMMA complexValue)* ')'
+	| KEY '(' ')'
 	;
 
 value:

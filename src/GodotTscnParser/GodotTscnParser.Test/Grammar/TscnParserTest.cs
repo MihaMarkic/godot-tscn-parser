@@ -115,36 +115,23 @@ namespace GodotTscnParser.Test.Grammar
                 Assert.That(actual.pair().Length, Is.EqualTo(2));
             }
             [Test]
-            public void GivenSampleWithAnimations_TestsValidity()
+            public void GivenSampleWithSurfaces_TestsValidity()
             {
                 const string input = """
-                    [sub_resource type="SpriteFrames" id="SpriteFrames_707dc"]
-                    animations = [{
-                    	"frames": [
-                    		{
-                    		"duration": 1.0,
-                    		"texture": ExtResource("1_d8csi")
-                    		}, 
-                    		{
-                    		"duration": 1.0,
-                    		"texture": ExtResource("2_ljnug")
-                    		}
-                    	],
-                    "loop": true,
-                    "name": &"up",
-                    "speed": 5.0
-                    }, {
-                    "frames": [{
-                    "duration": 1.0,
-                    "texture": ExtResource("3_krmrv")
-                    }, {
-                    "duration": 1.0,
-                    "texture": ExtResource("4_jrmwk")
-                    }],
-                    "loop": true,
-                    "name": &"walk",
-                    "speed": 5.0
+                    [sub_resource type="ArrayMesh" id="ArrayMesh_k3huk"]
+                    _surfaces = [{
+                    "aabb": AABB(-0.0073892, -0.0178603, -1.98041e-06, 0.0147784, 0.0333918, 0.00987402),
+                    "format": 34359742465,
+                    "index_count": 1890,
+                    "texture": ExtResource("1_d8csi"),
+                    "index_data": PackedByteArray("AAABAAIAAwACAAEAAQAEAAM"),
+                    "name": &"Material",
+                    "primitive": 3,
+                    "uv_scale": Vector4(0, 0, 0, 0.0),
+                    "vertex_count": 466,
+                    "vertex_data": PackedByteArray("FAavO9/33Ls20Mo7y+qE")
                     }]
+                    blend_shape_mode = 0
                     """;
 
                 var actual = Return(input, p => p.subResource());

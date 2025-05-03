@@ -262,6 +262,16 @@ public interface ITscnListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitComplexPair([NotNull] TscnParser.ComplexPairContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="TscnParser.predicate"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterPredicate([NotNull] TscnParser.PredicateContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="TscnParser.predicate"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitPredicate([NotNull] TscnParser.PredicateContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="TscnParser.value"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
