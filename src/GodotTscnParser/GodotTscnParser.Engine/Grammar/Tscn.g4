@@ -66,6 +66,7 @@ complexValue:
 	| extResourceRef
 	| subResourceRef
 	| numericStructure
+	| nodePath
 	| predicate
 	| value
 ;

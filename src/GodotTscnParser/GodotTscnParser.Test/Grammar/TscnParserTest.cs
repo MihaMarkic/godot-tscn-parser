@@ -138,6 +138,22 @@ namespace GodotTscnParser.Test.Grammar
 
                 Assert.That(actual.pair().Length, Is.EqualTo(2));
             }
+            
+            [Test]
+            public void GivenSampleWithNode_TestsValidity()
+            {
+                const string input =
+                    """
+                    [node name="road_tile_1x1_012" type="MeshInstance3D" parent="."]
+                    transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
+                    mesh = SubResource("ArrayMesh_hc558")
+                    skeleton = NodePath("")
+                    """;
+
+                var actual = Return(input, p => p.node());
+
+                Assert.That(actual.complexPair().Length, Is.EqualTo(6));
+            }
         }
         [TestFixture]
         public class ExtResourceRef : TscnParserTest
