@@ -148,11 +148,12 @@ namespace GodotTscnParser.Test.Grammar
                     transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
                     mesh = SubResource("ArrayMesh_hc558")
                     skeleton = NodePath("")
+                    surface_material_override/0 = ExtResource("3_e2ilv")
                     """;
 
                 var actual = Return(input, p => p.node());
 
-                Assert.That(actual.complexPair().Length, Is.EqualTo(6));
+                Assert.That(actual.complexPair().Length, Is.EqualTo(7));
             }
         }
         [TestFixture]
