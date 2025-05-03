@@ -13,16 +13,18 @@ namespace GodotTscnParser.Test.Grammar
         [TestFixture]
         public class Number: TscnParserTest
         {
-            [TestCase(".5")]
-            [TestCase("1.5")]
-            [TestCase("0")]
-            [TestCase("1")]
-            [TestCase("-0.0358698")]
-            [TestCase("8.74228e-08")]
-            [TestCase("-8.74228e-08")]
-            public void TestValid(string input)
+            [TestCase(".5", 0.5)]
+            [TestCase("1.5", 1.5)]
+            [TestCase("0", 0.0)]
+            [TestCase("1", 1.0)]
+            [TestCase("1e5", 1e5d)]
+            [TestCase("-0.0358698", -0.0358698)]
+            [TestCase("8.74228e-08", 8.74228e-08)]
+            [TestCase("-8.74228e-08", -8.74228e-08)]
+            public void TestValid(string input, double expected)
             {
-                Assert.DoesNotThrow(() => Run(input, p => p.number()));
+                var actual = Return(input, p => p.number());
+                Assert.That(double.Parse(actual.NUMBER().GetText()), Is.EqualTo(expected));
             }
             [TestCase("t")]
             public void TestInvalid(string input)
