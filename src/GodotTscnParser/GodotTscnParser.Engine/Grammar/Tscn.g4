@@ -118,6 +118,7 @@ NUMBER:
 
 fragment FLOAT: 	INT+ '.' INT* // match 1. 39. 3.14159 etc...
 	|  	'.' INT+ // match .1 .14159
+	| 	INT+ '.' INT* 'e' '-'? INT+ // match 1. 39. 3.14159e-10 etc...
 	;
 
 fragment INT : '0' | [1-9] [0-9]* ;
