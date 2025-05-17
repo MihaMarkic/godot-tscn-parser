@@ -1,4 +1,4 @@
-﻿v.1.0.0
+﻿v.1.0.0-beta.2
     - adds floating point with scientific notation like 1.87e-02 (jairov4)
     - adds multiple function-like values. pe. PackedByteArray() (jairov4)
     - adds properties with slash like surface_material_override/0 (jairov4)
