@@ -273,14 +273,14 @@ namespace GodotTscnParser.Test.Grammar
             }
         }
         [TestFixture]
-        public class NumericStructure : TscnParserTest
+        public class Predicate : TscnParserTest
         {
             [TestCase("Vector2(0.5, 0.5)")]
             [TestCase("Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 76.122, 0, -170)")]
             [TestCase("PoolRealArray( 0, 1, -0.0358698, -0.829927, 0.444204, 0, 0, 0, 1, 0.815074, 0.815074, 0.815074, 4.95833, 1, -0.0358698, -0.829927, 0.444204, 0, 0, 0, 1, 0.815074, 0.815074, 0.815074 )")]
             public void TestValid(string input)
             {
-                Assert.DoesNotThrow(() => Run(input, p => p.numericStructure()));
+                Assert.DoesNotThrow(() => Run(input, p => p.predicate()));
             }
         }
         [TestFixture]

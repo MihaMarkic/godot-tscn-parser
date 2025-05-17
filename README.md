@@ -13,3 +13,9 @@ However, it can eventually provide strong typed configuration as there is motiva
 
 See [godot-tscn-source-generator](https://github.com/MihaMarkic/godot-tscn-source-generator),
 specifically classes `TscnTypesGenerator`, `GodotProjListener` and unit tests for them.
+
+## How to generate grammar code
+
+Make sure antlr4 tool is installed (i.e `dnf install antlr4`)
+
+`antlr4 -Dlanguage=CSharp -package "Righthand.GodotTscnParser.Engine.Grammar" Tscn.g4` (or GodotProj.g4)

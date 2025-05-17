@@ -182,16 +182,6 @@ public interface ITscnListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitResourceRef([NotNull] TscnParser.ResourceRefContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="TscnParser.numericStructure"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterNumericStructure([NotNull] TscnParser.NumericStructureContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="TscnParser.numericStructure"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitNumericStructure([NotNull] TscnParser.NumericStructureContext context);
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="TscnParser.complexValue"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

@@ -55,17 +55,12 @@ resourceRef:
 	| NUMBER // here it is actually an INT, but it's not important
 	;
 
-numericStructure:
-	KEY '(' NUMBER (',' NUMBER)+ ')'
-	;
-
 complexValue: 
 	objectArray
 	| object
     | complexValueArray
 	| extResourceRef
 	| subResourceRef
-	| numericStructure
 	| nodePath
 	| predicate
 	| value
