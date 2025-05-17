@@ -41,6 +41,7 @@ namespace GodotTscnParser.Test.Grammar
             [TestCase("\tload_steps = 8")]
             [TestCase("format=3")]
             [TestCase("uxid=\"uid://d3doqyggcpkeb\"")]
+            [TestCase("bind=[0]")]
             public void TestValid(string input)
             {
                 Assert.DoesNotThrow(() => Run(input, p => p.pair()));
@@ -58,10 +59,10 @@ namespace GodotTscnParser.Test.Grammar
                 var actual = Return(input, p => p.pair());
 
                 Assert.That(actual.pairName().GetText(), Is.EqualTo("load_steps"));
-                var value = actual.value();
-                Assert.That(value.GetText(), Is.EqualTo("8"));
-                Assert.That(value.ChildCount, Is.EqualTo(1));
-                var terminal = (TerminalNodeImpl)value.GetChild(0);
+                var complexValue = actual.complexValue();
+                Assert.That(complexValue.GetText(), Is.EqualTo("8"));
+                Assert.That(complexValue.ChildCount, Is.EqualTo(1));
+                var terminal = (TerminalNodeImpl)complexValue.value().GetChild(0);
                 Assert.That(terminal.Symbol.Type, Is.EqualTo(TscnParser.NUMBER));
             }
         }
@@ -111,6 +112,43 @@ namespace GodotTscnParser.Test.Grammar
                     [sub_resource type="SpriteFrames" id="SpriteFrames_707dc"]
                     animations = []
                     """;
+
+                var actual = Return(input, p => p.subResource());
+
+                Assert.That(actual.pair().Length, Is.EqualTo(2));
+            }
+            [Test]
+            public void GivenSampleWithAnimations_TestsValidity()
+            {
+                const string input = """
+                                     [sub_resource type="SpriteFrames" id="SpriteFrames_707dc"]
+                                     animations = [{
+                                     	"frames": [
+                                     		{
+                                     		"duration": 1.0,
+                                     		"texture": ExtResource("1_d8csi")
+                                     		}, 
+                                     		{
+                                     		"duration": 1.0,
+                                     		"texture": ExtResource("2_ljnug")
+                                     		}
+                                     	],
+                                     "loop": true,
+                                     "name": &"up",
+                                     "speed": 5.0
+                                     }, {
+                                     "frames": [{
+                                     "duration": 1.0,
+                                     "texture": ExtResource("3_krmrv")
+                                     }, {
+                                     "duration": 1.0,
+                                     "texture": ExtResource("4_jrmwk")
+                                     }],
+                                     "loop": true,
+                                     "name": &"walk",
+                                     "speed": 5.0
+                                     }]
+                                     """;
 
                 var actual = Return(input, p => p.subResource());
 
@@ -303,7 +341,7 @@ namespace GodotTscnParser.Test.Grammar
                 var pair = actual.pair().Single();
 
                 Assert.That(pair.pairName().GetText(), Is.EqualTo("path"));
-                Assert.That(pair.value().GetText(), Is.EqualTo("\"UiRoot/Menu2/MarginContainer/VBoxContainer/BreakItem\""));
+                Assert.That(pair.complexValue().GetText(), Is.EqualTo("\"UiRoot/Menu2/MarginContainer/VBoxContainer/BreakItem\""));
             }
         }
     }

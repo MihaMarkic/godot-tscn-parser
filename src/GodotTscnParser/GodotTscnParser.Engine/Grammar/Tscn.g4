@@ -61,7 +61,8 @@ numericStructure:
 
 complexValue: 
 	objectArray
-	| object	
+	| object
+    | complexValueArray
 	| extResourceRef
 	| subResourceRef
 	| numericStructure
@@ -81,7 +82,7 @@ complexValueArray:
 	;
 
 pair: 
-	pairName '=' value 
+	pairName '=' complexValue 
 	;
 
 pairName:
@@ -105,7 +106,6 @@ value:
 	NUMBER 
 	| STRING 
 	| ref
-	| complexValueArray
 	| 'true' 
 	| 'false'
 	| 'null'
