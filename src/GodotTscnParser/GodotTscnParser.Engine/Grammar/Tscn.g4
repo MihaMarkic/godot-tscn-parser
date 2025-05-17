@@ -30,7 +30,7 @@ object:
 	;
 
 property: 
-	propertyName ':' complexValue
+	(propertyName | ref) ':' complexValue
 	;
 
 propertyName:
@@ -61,13 +61,15 @@ numericStructure:
 
 complexValue: 
 	objectArray
-	| object
-	| complexValueArray
+	| object	
 	| extResourceRef
 	| subResourceRef
 	| numericStructure
+	| nodePath
+	| predicate
 	| value
 ;
+
 objectArray: 
 	'[' object (COMMA object)* ']'
 	| '[' ']'
@@ -87,24 +89,30 @@ pairName:
 	;
 
 complexPairName:
-	KEY ('/' KEY)+	// i.e. surfaces/0 or bones/0/parent
-	| KEY
+	KEY
 	;
 
 complexPair: 
 	complexPairName '=' complexValue
 	;
 
+predicate:
+	KEY '(' complexValue (COMMA complexValue)* ')'
+	| KEY '(' ')'
+	;
+
 value:
 	NUMBER 
 	| STRING 
 	| ref
+	| complexValueArray
 	| 'true' 
 	| 'false'
 	| 'null'
 	;
-KEY: 
-	[a-zA-Z_][a-zA-Z_0-9]*
+
+KEY:
+	[a-zA-Z_][a-zA-Z_0-9/]*
 	;
 
 // for testing
@@ -118,6 +126,7 @@ NUMBER:
 
 fragment FLOAT: 	INT+ '.' INT* // match 1. 39. 3.14159 etc...
 	|  	'.' INT+ // match .1 .14159
+	| 	INT+ '.'? INT* 'e' '-'? INT+ // match 1. 39. 3.14159e-10 etc...
 	;
 
 fragment INT : '0' | [1-9] [0-9]* ;

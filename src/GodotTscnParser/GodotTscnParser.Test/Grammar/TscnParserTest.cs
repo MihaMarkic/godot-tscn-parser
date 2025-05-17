@@ -13,14 +13,18 @@ namespace GodotTscnParser.Test.Grammar
         [TestFixture]
         public class Number: TscnParserTest
         {
-            [TestCase(".5")]
-            [TestCase("1.5")]
-            [TestCase("0")]
-            [TestCase("1")]
-            [TestCase("-0.0358698")]
-            public void TestValid(string input)
+            [TestCase(".5", 0.5)]
+            [TestCase("1.5", 1.5)]
+            [TestCase("0", 0.0)]
+            [TestCase("1", 1.0)]
+            [TestCase("1e5", 1e5d)]
+            [TestCase("-0.0358698", -0.0358698)]
+            [TestCase("8.74228e-08", 8.74228e-08)]
+            [TestCase("-8.74228e-08", -8.74228e-08)]
+            public void TestValid(string input, double expected)
             {
-                Assert.DoesNotThrow(() => Run(input, p => p.number()));
+                var actual = Return(input, p => p.number());
+                Assert.That(double.Parse(actual.NUMBER().GetText()), Is.EqualTo(expected));
             }
             [TestCase("t")]
             public void TestInvalid(string input)
@@ -113,43 +117,66 @@ namespace GodotTscnParser.Test.Grammar
                 Assert.That(actual.pair().Length, Is.EqualTo(2));
             }
             [Test]
-            public void GivenSampleWithAnimations_TestsValidity()
+            public void GivenSampleWithSurfaces_TestsValidity()
             {
                 const string input = """
-                    [sub_resource type="SpriteFrames" id="SpriteFrames_707dc"]
-                    animations = [{
-                    	"frames": [
-                    		{
-                    		"duration": 1.0,
-                    		"texture": ExtResource("1_d8csi")
-                    		}, 
-                    		{
-                    		"duration": 1.0,
-                    		"texture": ExtResource("2_ljnug")
-                    		}
-                    	],
-                    "loop": true,
-                    "name": &"up",
-                    "speed": 5.0
-                    }, {
-                    "frames": [{
-                    "duration": 1.0,
-                    "texture": ExtResource("3_krmrv")
-                    }, {
-                    "duration": 1.0,
-                    "texture": ExtResource("4_jrmwk")
-                    }],
-                    "loop": true,
-                    "name": &"walk",
-                    "speed": 5.0
+                    [sub_resource type="ArrayMesh" id="ArrayMesh_k3huk"]
+                    _surfaces = [{
+                    "aabb": AABB(-0.0073892, -0.0178603, -1.98041e-06, 0.0147784, 0.0333918, 0.00987402),
+                    "format": 34359742465,
+                    "index_count": 1890,
+                    "texture": ExtResource("1_d8csi"),
+                    "index_data": PackedByteArray("AAABAAIAAwACAAEAAQAEAAM"),
+                    "name": &"Material",
+                    "primitive": 3,
+                    "uv_scale": Vector4(0, 0, 0, 0.0),
+                    "vertex_count": 466,
+                    "vertex_data": PackedByteArray("FAavO9/33Ls20Mo7y+qE")
                     }]
+                    _data = {
+                    &"Animation_FadeIn": SubResource("Animation_xbkcy"),
+                    &"Animation_FadeOut": SubResource("Animation_e5sew"),
+                    &"RESET": SubResource("Animation_51kib")
+                    }
+                    blend_shape_mode = 0
                     """;
 
                 var actual = Return(input, p => p.subResource());
 
                 Assert.That(actual.pair().Length, Is.EqualTo(2));
             }
+            
+            [Test]
+            public void GivenSampleWithNode_TestsValidity()
+            {
+                const string input =
+                    """
+                    [node name="road_tile_1x1_012" type="MeshInstance3D" parent="."]
+                    transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
+                    mesh = SubResource("ArrayMesh_hc558")
+                    skeleton = NodePath("")
+                    surface_material_override/0 = ExtResource("3_e2ilv")
+                    """;
+
+                var actual = Return(input, p => p.node());
+
+                Assert.That(actual.complexPair().Length, Is.EqualTo(7));
+            }
+            
+            [Test]
+            public void GivenSampleWithConnection_TestsValidity()
+            {
+                const string input =
+                    """
+                    [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Settings" to="SettingsPannelContainer" method="set_mouse_filter" binds= [0]]
+                    """;
+
+                var actual = Return(input, p => p.connection());
+
+                Assert.That(actual.pair().Length, Is.EqualTo(5));
+            }
         }
+        
         [TestFixture]
         public class ExtResourceRef : TscnParserTest
         {
@@ -211,6 +238,7 @@ namespace GodotTscnParser.Test.Grammar
         public class NumericStructure : TscnParserTest
         {
             [TestCase("Vector2(0.5, 0.5)")]
+            [TestCase("Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 76.122, 0, -170)")]
             [TestCase("PoolRealArray( 0, 1, -0.0358698, -0.829927, 0.444204, 0, 0, 0, 1, 0.815074, 0.815074, 0.815074, 4.95833, 1, -0.0358698, -0.829927, 0.444204, 0, 0, 0, 1, 0.815074, 0.815074, 0.815074 )")]
             public void TestValid(string input)
             {
