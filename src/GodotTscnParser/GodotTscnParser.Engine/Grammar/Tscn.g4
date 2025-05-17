@@ -56,24 +56,22 @@ resourceRef:
 	;
 
 complexValue: 
-	objectArray
-	| object
+    object
     | complexValueArray
 	| extResourceRef
 	| subResourceRef
 	| nodePath
 	| predicate
 	| value
-;
+    ;
 
-objectArray: 
-	'[' object (COMMA object)* ']'
-	| '[' ']'
-	;
+emptyArray: 
+    START_BRACKET END_BRACKET
+    ;
 
 complexValueArray:
-	'[' complexValue (COMMA complexValue)* ']'
-	| '[' ']'
+	START_BRACKET complexValue (COMMA complexValue)* END_BRACKET
+	| START_BRACKET END_BRACKET
 	;
 
 pair: 

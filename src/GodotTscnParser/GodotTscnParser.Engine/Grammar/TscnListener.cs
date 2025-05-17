@@ -192,15 +192,15 @@ public interface ITscnListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitComplexValue([NotNull] TscnParser.ComplexValueContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="TscnParser.objectArray"/>.
+	/// Enter a parse tree produced by <see cref="TscnParser.emptyArray"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterObjectArray([NotNull] TscnParser.ObjectArrayContext context);
+	void EnterEmptyArray([NotNull] TscnParser.EmptyArrayContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="TscnParser.objectArray"/>.
+	/// Exit a parse tree produced by <see cref="TscnParser.emptyArray"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitObjectArray([NotNull] TscnParser.ObjectArrayContext context);
+	void ExitEmptyArray([NotNull] TscnParser.EmptyArrayContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="TscnParser.complexValueArray"/>.
 	/// </summary>

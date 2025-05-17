@@ -235,7 +235,7 @@ namespace GodotTscnParser.Test.Grammar
             }
         }
         [TestFixture]
-        public class ObjectArray : TscnParserTest
+        public class ComplexValueArray : TscnParserTest
         {
             [TestCase("[ ]")]
             [TestCase("[{ }]")]
@@ -243,7 +243,7 @@ namespace GodotTscnParser.Test.Grammar
             [TestCase("[{ \"duration\": 1.0 }, { \"duration\": 2.0 }]")]
             public void TestValid(string input)
             {
-                Assert.DoesNotThrow(() => Run(input, p => p.objectArray()));
+                Assert.DoesNotThrow(() => Run(input, p => p.complexValueArray()));
             }
         }
         [TestFixture]
