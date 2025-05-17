@@ -1,4 +1,11 @@
-﻿v.1.0.0-beta.1
+﻿v.1.0.0
+    - adds floating point with scientific notation like 1.87e-02 (jairov4)
+    - adds multiple function-like values. pe. PackedByteArray() (jairov4)
+    - adds properties with slash like surface_material_override/0 (jairov4)
+    - fixes nodePath handling (jairov4)
+    - removes numericStructure in favor of more generic predicate
+    - removes objectArray in favor of more generic complexValueArray
+v.1.0.0-beta.1
 	- adds editable node support
 v.1.0.0-alpha8
 	- fixes parsing issues
