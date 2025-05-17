@@ -243,6 +243,24 @@ namespace GodotTscnParser.Test.Grammar
         }
 
         [TestFixture]
+        public class ComplexValue : TscnParserTest
+        {
+            [Test]
+            public void GivenNumericArrayWithSingleNumber_ExtractsValueProperly()
+            {
+                var actual = Return("[14]", p => p.complexValue());
+
+                var complexValueArray = actual.complexValueArray();
+                Assert.That(complexValueArray, Is.Not.Null);
+                Assert.That(complexValueArray.ChildCount, Is.EqualTo(3));
+                var complexValue = complexValueArray.complexValue();
+                Assert.That(complexValue.Length, Is.EqualTo(1));
+                var number = complexValue[0].value().NUMBER();
+                Assert.That(number.GetText(), Is.EqualTo("14"));
+            }
+        }
+
+        [TestFixture]
         public class Editable : TscnParserTest
         {
             [Test]
