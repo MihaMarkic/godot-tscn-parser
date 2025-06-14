@@ -90,8 +90,9 @@ complexPair:
 	complexPairName '=' complexValue
 	;
 
-predicate:
-	KEY '(' complexValue (COMMA complexValue)* ')'
+predicate
+	: KEY '(' complexValue (COMMA complexValue)* ')'
+	| genericType '(' complexValue (COMMA complexValue)* ')'
 	| KEY '(' ')'
 	;
 
@@ -103,6 +104,12 @@ value:
 	| 'false'
 	| 'null'
 	;
+	
+genericType
+    : KEY
+    | KEY START_BRACKET genericType (COMMA genericType)* END_BRACKET
+    | extResourceRef
+    ;
 
 KEY:
 	[a-zA-Z_][a-zA-Z_0-9/]*

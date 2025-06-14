@@ -1,4 +1,5 @@
-﻿using Antlr4.Runtime;
+﻿using System.Collections.Immutable;
+using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 using GodotTscnParser.Test.Grammar.Samples;
 using NUnit.Framework;
@@ -323,6 +324,49 @@ namespace GodotTscnParser.Test.Grammar
                 Assert.That(complexValue.Length, Is.EqualTo(1));
                 var number = complexValue[0].value().NUMBER();
                 Assert.That(number.GetText(), Is.EqualTo("14"));
+            }
+
+            [Test]
+            public void GivenStrongTypedDictionary_ExtractsValueProperly()
+            {
+                var source = """
+                             Dictionary[String, int]({
+                             "hello": 0
+                             })
+                             """;
+
+                var actual = Return(source, p => p.complexValue());
+
+                var predicate = actual.predicate();
+                Assert.That(predicate, Is.Not.Null);
+                var genericType = predicate.genericType();
+                Assert.That(genericType, Is.Not.Null);
+                var key = genericType.KEY();
+                Assert.That(key.GetText(), Is.EqualTo("Dictionary"));
+                var types = genericType.genericType();
+                Assert.That(types.Length, Is.EqualTo(2));
+                var typeNames = types.Select(t => t.KEY().GetText()).ToImmutableArray();
+                ImmutableArray<string> expectedTypeNames = ["String", "int"];
+                Assert.That(typeNames, Is.EquivalentTo(expectedTypeNames));
+            }
+            
+            [Test]
+            public void GivenStrongTypedArray_ExtractsValueProperly()
+            {
+                var source = """Array[ExtResource("6_tabqk")]([])""";
+
+                var actual = Return(source, p => p.complexValue());
+
+                var predicate = actual.predicate();
+                Assert.That(predicate, Is.Not.Null);
+                var genericType = predicate.genericType();
+                Assert.That(genericType, Is.Not.Null);
+                var key = genericType.KEY();
+                Assert.That(key.GetText(), Is.EqualTo("Array"));
+                var types = genericType.genericType();
+                Assert.That(types.Length, Is.EqualTo(1));
+                var type = types[0];
+                Assert.That(type.extResourceRef(), Is.Not.Null);
             }
         }
 

@@ -325,6 +325,18 @@ public partial class TscnBaseListener : ITscnListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitValue([NotNull] TscnParser.ValueContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="TscnParser.genericType"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterGenericType([NotNull] TscnParser.GenericTypeContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="TscnParser.genericType"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitGenericType([NotNull] TscnParser.GenericTypeContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="TscnParser.number"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
