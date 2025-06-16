@@ -1,4 +1,5 @@
 ﻿using System.Collections.Immutable;
+using System.Globalization;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 using GodotTscnParser.Test.Grammar.Samples;
@@ -25,7 +26,7 @@ namespace GodotTscnParser.Test.Grammar
             public void TestValid(string input, double expected)
             {
                 var actual = Return(input, p => p.number());
-                Assert.That(double.Parse(actual.NUMBER().GetText()), Is.EqualTo(expected));
+                Assert.That(double.Parse(actual.NUMBER().GetText(), CultureInfo.InvariantCulture), Is.EqualTo(expected));
             }
             [TestCase("t")]
             public void TestInvalid(string input)
