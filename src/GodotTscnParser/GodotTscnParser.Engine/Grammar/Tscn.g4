@@ -30,7 +30,7 @@ object:
 	;
 
 property: 
-	(propertyName | ref) ':' complexValue
+	(propertyName | ref | key) ':' complexValue
 	;
 
 propertyName:
@@ -49,6 +49,10 @@ nodePath:
 ref: 
 	'&' propertyName
 	;
+
+key
+    : NUMBER
+    ;
 
 resourceRef:
 	STRING

@@ -205,6 +205,18 @@ public partial class TscnBaseListener : ITscnListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitRef([NotNull] TscnParser.RefContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="TscnParser.key"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterKey([NotNull] TscnParser.KeyContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="TscnParser.key"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitKey([NotNull] TscnParser.KeyContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="TscnParser.resourceRef"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

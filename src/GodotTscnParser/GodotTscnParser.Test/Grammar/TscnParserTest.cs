@@ -352,6 +352,32 @@ namespace GodotTscnParser.Test.Grammar
             }
             
             [Test]
+            public void GivenStrongTypedDictionaryWithAKeyedIntValue_DoesNotThrow()
+            {
+                var source = """
+                             Dictionary[int, Texture2D]({
+                                0: ExtResource("2_3qjaq")
+                             })
+                             """;
+
+                Assert.DoesNotThrow(() => Return(source, p => p.complexValue()));
+            }
+            
+            [Test]
+            public void GivenStrongTypedDictionaryWithKeyedIntValues_DoesNotThrow()
+            {
+                var source = """
+                             Dictionary[int, Texture2D]({
+                                0: ExtResource("2_3qjaq"),
+                                 1: ExtResource("3_ay11t"),
+                                 2: ExtResource("4_q12rb")
+                             })
+                             """;
+
+                Assert.DoesNotThrow(() => Return(source, p => p.complexValue()));
+            }
+            
+            [Test]
             public void GivenStrongTypedArray_ExtractsValueProperly()
             {
                 var source = """Array[ExtResource("6_tabqk")]([])""";
