@@ -1,4 +1,6 @@
-﻿v.1.0.0-beta.3
+﻿v.1.0.0-beta.4
+    - adds support for numberic keys in complex values (used for dictionaries)
+v.1.0.0-beta.3
 	- adds generic types support
 v.1.0.0-beta.2
     - adds floating point with scientific notation like 1.87e-02 (jairov4)
