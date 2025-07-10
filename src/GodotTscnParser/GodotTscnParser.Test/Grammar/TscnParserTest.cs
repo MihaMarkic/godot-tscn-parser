@@ -202,7 +202,24 @@ namespace GodotTscnParser.Test.Grammar
 
                 Assert.That(actual.complexPair().Length, Is.EqualTo(7));
             }
-            
+
+            [Test]
+            public void GivenSampleWithEscapedQuotes_TestsValidity()
+            {
+                const string input =
+                    """
+                    [node name="Foo" type="Node"]
+                    foo = "Foo \"Bar\" Baz"
+                    bar = "This is a
+                    multiline string with \"escaped quotes\"
+                    on multiple lines"
+                    """;
+
+                var actual = Return(input, p => p.node());
+
+                Assert.That(actual.complexPair().Length, Is.EqualTo(4));
+            }
+
             [Test]
             public void GivenSampleWithConnection_TestsValidity()
             {
