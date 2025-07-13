@@ -127,7 +127,7 @@ fragment INT : '0' | [1-9] [0-9]* ;
 COMMA: ',' ;
 START_BRACKET: '[' ;
 END_BRACKET: ']' ;
-STRING: '"' .*? '"' ;
+STRING: '"' ( ~["\\] | '\\' . )* '"' ;
 // comments are not supported
 COMMENT: ';' .*? EOL ; // Match ";" stuff '\n'
 EOL: '\r\n' | '\r' | '\n' ;
