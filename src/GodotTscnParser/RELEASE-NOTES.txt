@@ -1,4 +1,6 @@
-﻿v.1.0.0-beta.4
+﻿v.1.0.0-beta.5
+     - Fixes escaping double quotes in strings (kilian-hu)
+v.1.0.0-beta.4
     - adds support for numeric keys in complex values (used for dictionaries)
 v.1.0.0-beta.3
 	- adds generic types support
