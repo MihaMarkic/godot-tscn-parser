@@ -62,76 +62,76 @@
             """;
 
         public const string Second = """
-        [gd_scene load_steps=10 format=3 uid="uid://buj8wisq0l07p"]
+	        [gd_scene load_steps=10 format=3 uid="uid://buj8wisq0l07p"]
 
-        [ext_resource type="Script" path="res://Mob.cs" id="1_k5y70"]
-        [ext_resource type="Texture2D" uid="uid://bye51w2ru5vie" path="res://art/enemyFlyingAlt_1.png" id="1_ytrj5"]
-        [ext_resource type="Texture2D" uid="uid://dhfn0d6qh0qvy" path="res://art/enemyFlyingAlt_2.png" id="2_bls2m"]
-        [ext_resource type="Texture2D" uid="uid://bwrqjt5jq5xfb" path="res://art/enemySwimming_1.png" id="3_j0cqp"]
-        [ext_resource type="Texture2D" uid="uid://c5uy3836dmlt5" path="res://art/enemySwimming_2.png" id="4_bnymk"]
-        [ext_resource type="Texture2D" uid="uid://cdv0chn06a4bm" path="res://art/enemyWalking_1.png" id="5_kl1oy"]
-        [ext_resource type="Texture2D" uid="uid://cr0p08wnu2xm8" path="res://art/enemyWalking_2.png" id="6_h88k2"]
+	        [ext_resource type="Script" path="res://Mob.cs" id="1_k5y70"]
+	        [ext_resource type="Texture2D" uid="uid://bye51w2ru5vie" path="res://art/enemyFlyingAlt_1.png" id="1_ytrj5"]
+	        [ext_resource type="Texture2D" uid="uid://dhfn0d6qh0qvy" path="res://art/enemyFlyingAlt_2.png" id="2_bls2m"]
+	        [ext_resource type="Texture2D" uid="uid://bwrqjt5jq5xfb" path="res://art/enemySwimming_1.png" id="3_j0cqp"]
+	        [ext_resource type="Texture2D" uid="uid://c5uy3836dmlt5" path="res://art/enemySwimming_2.png" id="4_bnymk"]
+	        [ext_resource type="Texture2D" uid="uid://cdv0chn06a4bm" path="res://art/enemyWalking_1.png" id="5_kl1oy"]
+	        [ext_resource type="Texture2D" uid="uid://cr0p08wnu2xm8" path="res://art/enemyWalking_2.png" id="6_h88k2"]
 
-        [sub_resource type="SpriteFrames" id="SpriteFrames_7jrot"]
-        animations = [{
-        "frames": [{
-        "duration": 1.0,
-        "texture": ExtResource("1_ytrj5")
-        }, {
-        "duration": 1.0,
-        "texture": ExtResource("2_bls2m")
-        }],
-        "loop": true,
-        "name": &"fly",
-        "speed": 3.0
-        }, {
-        "frames": [{
-        "duration": 1.0,
-        "texture": ExtResource("3_j0cqp")
-        }, {
-        "duration": 1.0,
-        "texture": ExtResource("4_bnymk")
-        }],
-        "loop": true,
-        "name": &"swim",
-        "speed": 3.0
-        }, {
-        "frames": [{
-        "duration": 1.0,
-        "texture": ExtResource("5_kl1oy")
-        }, {
-        "duration": 1.0,
-        "texture": ExtResource("6_h88k2")
-        }],
-        "loop": true,
-        "name": &"walk",
-        "speed": 3.0
-        }]
+	        [sub_resource type="SpriteFrames" id="SpriteFrames_7jrot"]
+	        animations = [{
+	        "frames": [{
+	        "duration": 1.0,
+	        "texture": ExtResource("1_ytrj5")
+	        }, {
+	        "duration": 1.0,
+	        "texture": ExtResource("2_bls2m")
+	        }],
+	        "loop": true,
+	        "name": &"fly",
+	        "speed": 3.0
+	        }, {
+	        "frames": [{
+	        "duration": 1.0,
+	        "texture": ExtResource("3_j0cqp")
+	        }, {
+	        "duration": 1.0,
+	        "texture": ExtResource("4_bnymk")
+	        }],
+	        "loop": true,
+	        "name": &"swim",
+	        "speed": 3.0
+	        }, {
+	        "frames": [{
+	        "duration": 1.0,
+	        "texture": ExtResource("5_kl1oy")
+	        }, {
+	        "duration": 1.0,
+	        "texture": ExtResource("6_h88k2")
+	        }],
+	        "loop": true,
+	        "name": &"walk",
+	        "speed": 3.0
+	        }]
 
-        [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r7hl5"]
-        radius = 58.0
-        height = 120.0
+	        [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r7hl5"]
+	        radius = 58.0
+	        height = 120.0
 
-        [node name="Mob" type="RigidBody2D"]
-        collision_mask = 0
-        gravity_scale = 0.0
-        script = ExtResource("1_k5y70")
-        metadata/_edit_group_ = true
+	        [node name="Mob" type="RigidBody2D"]
+	        collision_mask = 0
+	        gravity_scale = 0.0
+	        script = ExtResource("1_k5y70")
+	        metadata/_edit_group_ = true
 
-        [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-        scale = Vector2(0.75, 0.75)
-        sprite_frames = SubResource("SpriteFrames_7jrot")
-        animation = &"swim"
+	        [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+	        scale = Vector2(0.75, 0.75)
+	        sprite_frames = SubResource("SpriteFrames_7jrot")
+	        animation = &"swim"
 
-        [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+	        [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-        [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-        rotation = 1.5708
-        shape = SubResource("CapsuleShape2D_r7hl5")
+	        [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+	        rotation = 1.5708
+	        shape = SubResource("CapsuleShape2D_r7hl5")
 
-        [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnVisibleOnScreenNotifier2DScreenExited"]
-        
-        """;
+	        [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnVisibleOnScreenNotifier2DScreenExited"]
+	        
+	        """;
 
         public const string Third = """
             [gd_scene load_steps=8 format=3 uid="uid://hc1rholre01q"]
@@ -197,28 +197,28 @@
             """;
 
         public const string Fourth = """
-						[gd_scene load_steps=4 format=3 uid="uid://c3sfqrrm1v350"]
+			[gd_scene load_steps=4 format=3 uid="uid://c3sfqrrm1v350"]
 
-						[ext_resource type="Texture2D" uid="uid://b35bon1qhoeuh" path="res://Assets/PathDisplay.png" id="1_rkbfj"]
-						[ext_resource type="Script" path="res://Scripts/PathTracker.cs" id="2_hwkby"]
+			[ext_resource type="Texture2D" uid="uid://b35bon1qhoeuh" path="res://Assets/PathDisplay.png" id="1_rkbfj"]
+			[ext_resource type="Script" path="res://Scripts/PathTracker.cs" id="2_hwkby"]
 
-						[sub_resource type="SpriteFrames" id="SpriteFrames_kwub8"]
-						animations = [{
-						"frames": [{
-						"duration": 1.0,
-						"texture": ExtResource("1_rkbfj")
-						}],
-						"loop": true,
-						"name": &"default",
-						"speed": 5.0
-						}]
+			[sub_resource type="SpriteFrames" id="SpriteFrames_kwub8"]
+			animations = [{
+			"frames": [{
+			"duration": 1.0,
+			"texture": ExtResource("1_rkbfj")
+			}],
+			"loop": true,
+			"name": &"default",
+			"speed": 5.0
+			}]
 
-						[node name="Root" type="PathFollow2D"]
+			[node name="Root" type="PathFollow2D"]
 
-						[node name="Sprite" type="AnimatedSprite2D" parent="."]
-						sprite_frames = SubResource("SpriteFrames_kwub8")
-						script = ExtResource("2_hwkby")
-						""";
+			[node name="Sprite" type="AnimatedSprite2D" parent="."]
+			sprite_frames = SubResource("SpriteFrames_kwub8")
+			script = ExtResource("2_hwkby")
+			""";
         public const string AdventureScene = """
             [gd_scene load_steps=32 format=3 uid="uid://4ujxbrmndad2"]
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Immutable;
 using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
 using GodotTscnParser.Test.Grammar.Samples;
 using NUnit.Framework;
 using Righthand.GodotTscnParser.Engine.Grammar;
@@ -36,6 +37,21 @@ namespace GodotTscnParser.Test.Grammar
             public void TestValid(string input)
             {
                 Assert.DoesNotThrow(() => Run(input, p => p.section()));
+            }
+        }
+
+        [TestFixture]
+        public class String : GodotProjParserTest
+        {
+            [Test]
+            public void GivenUid_ParsesCorrectly()
+            {
+                var actual = Return("\"uid://cvrsyog7fbefh\"", p => p.value());
+
+                var stringNode = (ITerminalNode)actual.children.Single();
+                
+                Assert.That(stringNode.Symbol.Type, Is.EqualTo(GodotProjParser.STRING));
+                Assert.That(stringNode.GetText(), Is.EqualTo("\"uid://cvrsyog7fbefh\""));
             }
         }
         [TestFixture]
@@ -107,7 +123,7 @@ namespace GodotTscnParser.Test.Grammar
                             where cp is not null
                             select cp.complexPairName().GetText();
                 var pairNames = query.ToImmutableArray();
-                Assert.That(pairNames, Is.EquivalentTo(new string[] { "move_left", "move_right", "move_up", "move_down", "start_game" }));
+                Assert.That(pairNames, Is.EquivalentTo(["move_left", "move_right", "move_up", "move_down", "start_game"]));
             }
         }
     }
