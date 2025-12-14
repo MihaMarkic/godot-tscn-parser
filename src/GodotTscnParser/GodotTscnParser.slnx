@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../../README.md" />
+    <File Path="RELEASE-NOTES.txt" />
+  </Folder>
+  <Project Path="GodotTscnParser.Engine/GodotTscnParser.Engine.csproj" />
+  <Project Path="GodotTscnParser.Test/GodotTscnParser.Test.csproj" />
+</Solution>
