@@ -126,5 +126,16 @@ namespace GodotTscnParser.Test.Grammar
                 Assert.That(pairNames, Is.EquivalentTo(["move_left", "move_right", "move_up", "move_down", "start_game"]));
             }
         }
+
+        [TestFixture]
+        public class ComplexPairName : GodotProjParserTest
+        {
+            [TestCase("window/size/viewport_width")]
+            [TestCase("renderer/rendering_method.mobile")]
+            public void GivenPairName_ParsesCorrectly(string input)
+            {
+                Assert.DoesNotThrow(() => Return(input, p => p.complexPairName()));
+            }
+        }
     }
 }
